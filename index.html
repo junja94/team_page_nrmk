@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neuromeka AI Lab</title>
+  <link rel="icon" href="favicon.ico" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=4" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div id="siteHeader"></div>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-slider" id="heroSlider">
+        <div class="hero-media" id="heroMedia"></div>
+        <button class="slider-control prev" aria-label="Previous media" id="heroPrev">&#10094;</button>
+        <button class="slider-control next" aria-label="Next media" id="heroNext">&#10095;</button>
+        <div class="hero-overlay">
+          <h1>Next-Generation Industrial Robotics with AI</h1>
+          <div id="heroCopy" class="markdown"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="core-tech">
+      <div class="section-header">
+        <h2>Research highlights</h2>
+        <!-- <p>Research & Media highlights</p> -->
+      </div>
+      <div class="carousel" id="techCarousel">
+        <div class="carousel-track" id="techTrack"></div>
+        <button class="slider-control prev" aria-label="Previous" id="techPrev">&#10094;</button>
+        <button class="slider-control next" aria-label="Next" id="techNext">&#10095;</button>
+      </div>
+      <div class="carousel-dots" id="techDots"></div>
+    </section>
+
+    <section class="section about-section" id="about">
+      <div class="section-header">
+        <h2>About us</h2>
+      </div>
+      <div class="about-content markdown" id="aboutContent"></div>
+    </section>
+  </main>
+
+  <div id="siteFooter"></div>
+
+  <script src="assets/js/layout.js?v=4"></script>
+  <script src="assets/js/shared.js"></script>
+  <script src="assets/js/script.js?v=9"></script>
+</body>
+</html>

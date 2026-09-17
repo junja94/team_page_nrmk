@@ -1,0 +1,20 @@
+[
+  {
+    "name": "neuromeka-robotics/neuromeka-il",
+    "url": "https://github.com/neuromeka-robotics/neuromeka-il",
+    "description": "Imitation Learning training code for Indy 7 robot based on Action Chunking Transformer (ACT) model.",
+    "topics": ["imitation-learning", "act", "indy7"]
+  },
+  {
+    "name": "neuromeka-robotics/neuromeka-isaac",
+    "url": "https://github.com/neuromeka-robotics/neuromeka-isaac",
+    "description": "IsaacLab template for Neuromeka robots including Indy7, Dual-arm ICON, and more.",
+    "topics": ["isaac-sim", "simulation", "robotics"]
+  },
+  {
+    "name": "neuromeka-robotics/moby-ros",
+    "url": "https://github.com/neuromeka-robotics/moby-ros",
+    "description": "Minimal ROS packages for navigation research with Moby robot.",
+    "topics": ["ros", "navigation", "moby"]
+  }
+]
