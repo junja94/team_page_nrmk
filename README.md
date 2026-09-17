@@ -10,6 +10,7 @@ Static site hosted on GitHub Pages (moved from the internal GitLab on 2026-09-17
 - **Blog**: add Markdown posts under `posts/` and list them in `posts/posts.json`. Each post should include a `# Title`, `Authors:`, `Date:`, and `Image:` line followed by the content body.
 - **Team**: edit `team/team.md` using `## Name | Role`, optional `Image:`, and bullet points. Hiring notes live in `team/hiring.md`.
 - **Open sources**: update `sources/repos.json`.
+- **Scripts**: `assets/js/shared.js` holds the helpers (post loading, media elements, inline markdown); each page has its own small script. Markdown is rendered in the browser by [marked](https://github.com/markedjs/marked), pinned to v15 on jsDelivr in `index.html` and `post.html`.
 
 Pages are optimized for a wide layout, white background, and a configurable blue accent via the `--color-accent` CSS variable in `assets/css/styles.css`.
 
