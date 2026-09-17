@@ -1,4 +1,4 @@
-MaxWidth: 1300px
+# Next-Generation Industrial Robotics with AI
+Kicker: Neuromeka AI Lab
 
 At **Neuromeka AI Lab**, we tackle industry-specific challenges by developing practical, field-ready AI solutions.
-<!-- We integrate data-driven intelligence into industrial machines to create real-world impact in industrial automation. -->

@@ -1,25 +1,13 @@
-// layout.js — injects the shared header/footer partials and highlights the current nav link.
+// layout.js — injects the shared header/footer partials and marks the current nav link.
 
-function setActiveNav(container) {
-  const current = window.location.pathname.split('/').pop() || 'index.html';
-  const activeHref = current === 'post.html' ? 'blog.html' : current;
+// Pages that are not in the nav point at the nav entry they belong under.
+const NAV_ALIASES = { 'post.html': 'index.html#research' };
+
+function markCurrentNav(container) {
+  const file = window.location.pathname.split('/').pop() || 'index.html';
+  const current = NAV_ALIASES[file] || file;
   container.querySelectorAll('nav a').forEach((link) => {
-    if (link.getAttribute('href') === activeHref) link.classList.add('active');
-  });
-
-  // Hamburger toggle on narrow screens
-  const toggle = container.querySelector('.nav-toggle');
-  const nav = container.querySelector('#siteNav');
-  if (!toggle || !nav) return;
-  toggle.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  });
-  nav.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
+    if (link.getAttribute('href') === current) link.setAttribute('aria-current', 'page');
   });
 }
 
@@ -35,5 +23,5 @@ function loadPartial(hostId, path, onLoad) {
     .catch(() => {});
 }
 
-loadPartial('siteHeader', 'assets/header.html', setActiveNav);
+loadPartial('siteHeader', 'assets/header.html', markCurrentNav);
 loadPartial('siteFooter', 'assets/footer.html');

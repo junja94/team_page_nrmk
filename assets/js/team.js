@@ -1,146 +1,228 @@
-// team.js — Team page: renders team/hiring.md followed by team/team.md.
+// team.js — Team page: team/team.md for the people, team/hiring.md for the openings.
 //
-// Markdown layout:  # Group          → a section (a group named "Open …" is styled as a callout)
-//                   ## Name | Role   → a member card, with an optional "Image:" line and "- " bullets
-//                   ### Label        → a bullet list (a "### Contact" list becomes the callout text)
+// Markdown schema
+//   # Group name            a section; the first one becomes the page heading
+//     Meta: Seoul           optional, shown at the right of the first section's heading
+//     Contact: text         optional, the line beside an "Open positions" heading
+//   ## Name | Role          a person row, or an opening in the positions section
+//     Image: path           person photo
+//     Link: [Label](url)    optional profile link, shown after the credentials
+//     Location: Seoul       opening location badge
+//     - bullet              credentials; for an opening, the first bullet is the
+//                           requirement and the rest are joined with " · "
+//   ### Partner labs        a labelled sub-block, one bullet per lab:
+//     - [Name](url) | Institution | optional/logo.png
 
 const TEAM_URL = 'team/team.md';
 const HIRING_URL = 'team/hiring.md';
-const DEFAULT_AVATAR = 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80';
-const teamGrid = document.getElementById('teamGrid');
+const PARTNER_LABS_LABEL = 'partner labs';
+const POSITIONS_GROUP = 'open positions';
+const teamContent = document.getElementById('teamContent');
 
-function parseBullets(lines) {
-  return lines.filter((line) => line.trim().startsWith('- ')).map((line) => line.replace(/^\s*-\s*/, '').trim());
-}
-
-function parseTeam(markdown) {
+/** Line-based parse into [{ name, meta, entries, lists }]. */
+function parseTeamMarkdown(markdown) {
   const groups = [];
-  markdown.split(/\n# (?!#)/).filter(Boolean).forEach((groupBlock) => {
-    const lines = groupBlock.split('\n');
-    const groupName = lines.shift().replace(/^#\s*/, '').trim();
-    const groupText = lines.join('\n');
+  let group = null;
+  let entry = null;
+  let list = null;
 
-    // Pull out the "### Label" lists first so they do not bleed into member parsing.
-    const listSections = [];
-    const subSection = /\n### ([^\n]+)\n([\s\S]*?)(?=\n### |\n## |$)/g;
-    let memberText = groupText;
-    let match;
-    while ((match = subSection.exec(groupText)) !== null) {
-      listSections.push({ title: match[1].trim(), bullets: parseBullets(match[2].split('\n')) });
-      memberText = memberText.replace(match[0], '');
+  markdown.split('\n').forEach((raw) => {
+    const line = raw.trim();
+    if (!line || line.startsWith('<!--')) return;
+
+    if (line.startsWith('### ')) {
+      entry = null;
+      list = { title: line.slice(4).trim(), bullets: [] };
+      if (group) group.lists.push(list);
+      return;
+    }
+    if (line.startsWith('## ')) {
+      const [name, role = ''] = splitPipes(line.slice(3));
+      list = null;
+      entry = { name, role, meta: {}, bullets: [] };
+      if (group && name) group.entries.push(entry);
+      return;
+    }
+    if (line.startsWith('# ')) {
+      entry = null;
+      list = null;
+      group = { name: line.slice(2).trim(), meta: {}, entries: [], lists: [] };
+      groups.push(group);
+      return;
+    }
+    if (line.startsWith('- ')) {
+      const bullet = line.slice(2).trim();
+      if (list) list.bullets.push(bullet);
+      else if (entry) entry.bullets.push(bullet);
+      return;
     }
 
-    const members = [];
-    memberText.split(/\n## /).filter(Boolean).forEach((block) => {
-      const blockLines = block.split('\n').filter(Boolean);
-      const header = blockLines.shift().replace(/^##\s*/, '');
-      const [name, role = ''] = header.split('|').map((s) => s.trim());
-      if (!name) return;
-      const imageLine = blockLines.find((line) => line.toLowerCase().startsWith('image:'));
-      const image = imageLine ? imageLine.slice(imageLine.indexOf(':') + 1).trim() : null;
-      members.push({ name, role, image, bullets: parseBullets(blockLines) });
-    });
-
-    if (members.length || listSections.length) groups.push({ groupName, members, listSections });
+    const match = line.match(META_LINE);
+    if (!match) return;
+    const target = entry || group;
+    if (target) target.meta[metaKey(match[1])] = match[2].trim();
   });
+
   return groups;
 }
 
-function buildBulletList(bullets) {
-  const list = document.createElement('ul');
-  bullets.forEach((point) => {
-    const li = document.createElement('li');
-    appendInlineMarkdown(li, point);
-    list.appendChild(li);
-  });
-  return list;
+function buildSectionHead(title, headingTag, metaText) {
+  const head = el('div', 'section-head');
+  const heading = el(headingTag, headingTag === 'h1' ? 'page-title' : '', title);
+  head.appendChild(heading);
+  if (metaText) head.appendChild(el('span', 'section-meta', metaText));
+  return head;
 }
 
-function buildListSection({ title, bullets }) {
-  const section = document.createElement('div');
-  section.className = 'team-list-section';
-  const heading = document.createElement('h3');
-  heading.className = 'team-list-label';
-  heading.textContent = title;
-  section.append(heading, buildBulletList(bullets));
+function buildPersonRow(person) {
+  const row = el('div', 'person-row');
+
+  const photo = el('div', 'person-photo');
+  if (person.meta.image) {
+    const img = document.createElement('img');
+    img.src = person.meta.image;
+    img.alt = person.name;
+    img.loading = 'lazy';
+    photo.appendChild(img);
+  }
+  row.appendChild(photo);
+
+  const identity = el('div', 'person-identity');
+  identity.appendChild(el('div', 'person-name', person.name));
+  if (person.role) identity.appendChild(el('div', 'person-role', person.role));
+  row.appendChild(identity);
+
+  const credentials = el('div', 'person-credentials');
+  person.bullets.forEach((bullet) => {
+    const span = el('span');
+    appendInlineMarkdown(span, bullet);
+    credentials.appendChild(span);
+  });
+  if (person.meta.link) {
+    const span = el('span');
+    appendInlineMarkdown(span, person.meta.link);
+    credentials.appendChild(span);
+  }
+  row.appendChild(credentials);
+  return row;
+}
+
+function buildPartnerLab(bullet) {
+  const [nameField, institution = '', logo = ''] = splitPipes(bullet);
+  const link = parseMarkdownLink(nameField);
+  const name = link ? link.label : nameField;
+
+  const lab = el('div', 'partner-lab');
+  const tile = el('div', 'partner-lab-logo');
+  if (logo) {
+    const img = document.createElement('img');
+    img.src = logo;
+    img.alt = `${name} logo`;
+    img.loading = 'lazy';
+    tile.appendChild(img);
+  } else {
+    // No logo supplied yet: the tile carries the institution name instead.
+    tile.appendChild(el('span', '', institution || name));
+  }
+  lab.appendChild(tile);
+
+  const label = el(link ? 'a' : 'div', 'partner-lab-link');
+  if (link) {
+    label.href = link.href;
+    label.target = '_blank';
+    label.rel = 'noopener noreferrer';
+  }
+  label.appendChild(el('span', 'partner-lab-name', name));
+  if (institution) label.appendChild(el('span', 'partner-lab-inst', institution));
+  lab.appendChild(label);
+  return lab;
+}
+
+function buildPartnerLabs(list) {
+  const block = el('div', 'partner-labs');
+  const head = el('div', 'section-head partner-labs-head');
+  head.appendChild(el('h3', 'kicker kicker-muted', list.title));
+  block.appendChild(head);
+
+  const grid = el('div', 'partner-labs-grid');
+  list.bullets.forEach((bullet) => grid.appendChild(buildPartnerLab(bullet)));
+  block.appendChild(grid);
+  return block;
+}
+
+function buildPeopleSection(group, headingTag, metaText) {
+  const section = el('section', 'section-rows');
+  section.appendChild(buildSectionHead(group.name, headingTag, metaText));
+  group.entries.forEach((person) => section.appendChild(buildPersonRow(person)));
+  group.lists
+    .filter((list) => list.title.toLowerCase() === PARTNER_LABS_LABEL)
+    .forEach((list) => section.appendChild(buildPartnerLabs(list)));
   return section;
 }
 
-function buildMemberCard(member, withImage) {
-  const card = document.createElement('article');
-  card.className = 'team-card';
-  if (withImage) {
-    const img = document.createElement('img');
-    img.src = member.image || DEFAULT_AVATAR;
-    img.alt = member.name;
-    card.appendChild(img);
+function buildPositionRow(opening) {
+  const row = el('div', 'position-row');
+  row.appendChild(el('div', 'position-title', opening.name));
+
+  const detail = el('div', 'position-detail');
+  const [requirement, ...rest] = opening.bullets;
+  if (requirement) {
+    const strong = el('strong');
+    appendInlineMarkdown(strong, requirement);
+    detail.appendChild(strong);
   }
-  const body = document.createElement('div');
-  const name = document.createElement('h3');
-  name.textContent = member.name;
-  const role = document.createElement('div');
-  role.className = 'post-meta';
-  role.textContent = member.role;
-  body.append(name, role, buildBulletList(member.bullets));
-  card.appendChild(body);
-  return card;
+  if (rest.length) {
+    detail.append(requirement ? ' · ' : '');
+    appendInlineMarkdown(detail, rest.join(' · '));
+  }
+  row.appendChild(detail);
+
+  if (opening.meta.location) row.appendChild(el('div', 'position-location', opening.meta.location));
+  return row;
 }
 
-function buildContactCallout(title, lines) {
-  const callout = document.createElement('div');
-  callout.className = 'team-open-callout';
-  const heading = document.createElement('h3');
-  heading.textContent = title;
-  const text = document.createElement('p');
-  lines.forEach((line, i) => {
-    if (i) text.appendChild(document.createElement('br'));
-    appendInlineMarkdown(text, line);
+function buildPositionsSection(group) {
+  const section = el('section', 'positions');
+
+  const head = el('div', 'positions-head');
+  head.appendChild(el('h2', '', group.name));
+  if (group.meta.contact) {
+    const contact = el('p', 'positions-contact');
+    appendInlineMarkdown(contact, group.meta.contact);
+    head.appendChild(contact);
+  }
+  section.appendChild(head);
+
+  const list = el('div', 'positions-list');
+  group.entries.forEach((opening) => list.appendChild(buildPositionRow(opening)));
+  section.appendChild(list);
+  return section;
+}
+
+function renderTeamPage(groups) {
+  teamContent.innerHTML = '';
+  const peopleGroups = groups.filter((group) => group.name.toLowerCase() !== POSITIONS_GROUP);
+  const headcount = peopleGroups.reduce((total, group) => total + group.entries.length, 0);
+
+  groups.forEach((group) => {
+    if (group.name.toLowerCase() === POSITIONS_GROUP) {
+      teamContent.appendChild(buildPositionsSection(group));
+      return;
+    }
+    const isFirst = group === peopleGroups[0];
+    const metaText = isFirst && group.meta.meta
+      ? `${headcount} members · ${group.meta.meta}`
+      : '';
+    teamContent.appendChild(buildPeopleSection(group, isFirst ? 'h1' : 'h2', metaText));
   });
-  callout.append(heading, text);
-  return callout;
 }
 
-function buildGroupSection({ groupName, members, listSections }) {
-  const key = groupName.toLowerCase();
-  const isOpen = key.includes('open');
-  const isAlumni = key.includes('alumni');
-  const isContact = (section) => section.title.toLowerCase() === 'contact';
-
-  const container = document.createElement('div');
-  container.className = isOpen ? 'team-section team-section-open' : 'team-section';
-
-  if (isOpen) {
-    const contact = listSections.find(isContact);
-    if (contact) container.appendChild(buildContactCallout(groupName, contact.bullets));
-  } else if (!isAlumni) {
-    const label = document.createElement(key === 'team' ? 'h1' : 'h2');
-    label.className = 'team-group-label';
-    label.textContent = groupName;
-    container.appendChild(label);
-  }
-
-  if (members.length) {
-    const grid = document.createElement('div');
-    grid.className = isOpen ? 'team-cards team-cards-open' : 'team-cards';
-    members.forEach((member) => grid.appendChild(buildMemberCard(member, !isOpen)));
-    container.appendChild(grid);
-  }
-
-  listSections
-    .filter((section) => !isContact(section))
-    .forEach((section) => container.appendChild(buildListSection(section)));
-
-  return container;
-}
-
-if (teamGrid) {
-  Promise.all([fetchText(HIRING_URL), fetchText(TEAM_URL)])
-    .then(([hiringMd, teamMd]) => [...parseTeam(hiringMd), ...parseTeam(teamMd)])
-    .then((groups) => {
-      teamGrid.innerHTML = '';
-      groups.forEach((group) => teamGrid.appendChild(buildGroupSection(group)));
-    })
+if (teamContent) {
+  Promise.all([fetchText(TEAM_URL), fetchText(HIRING_URL)])
+    .then(([teamMd, hiringMd]) => [...parseTeamMarkdown(teamMd), ...parseTeamMarkdown(hiringMd)])
+    .then(renderTeamPage)
     .catch(() => {
-      teamGrid.textContent = 'Add team members in team/team.md using Markdown headings.';
+      teamContent.appendChild(el('p', 'list-empty',
+        'Add team members in team/team.md and openings in team/hiring.md.'));
     });
 }

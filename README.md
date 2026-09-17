@@ -1,18 +1,22 @@
 # Neuromeka AI Lab pages
 
-Static site hosted on GitHub Pages (moved from the internal GitLab on 2026-09-17). Content is markdown-first so updates are simple:
+Static two-page site hosted on GitHub Pages (moved from the internal GitLab on 2026-09-17): **Home** (hero, about, research list) and **Team** (people, collaborators, partner labs, open positions). Individual research posts open on `post.html`. Content is markdown-first so updates are simple.
 
-- **Home config**: `content/home.json` (hero media + core tech items; supports images/videos via `mediaType` or file extension, using `path`, plus optional `poster` and `heroCopyUrl`)
-- **Hero copy**: `content/hero.md` (optional first line `MaxWidth: 900px` to control hero text width)
-- **About**: `content/about.md`
-- **Header/nav**: `assets/header.html` (shared top bar across pages); footer in `assets/footer.html`
-- **Media assets**: `media/` (logo, hero images, post images, team photos, video thumbnails)
-- **Blog**: add Markdown posts under `posts/` and list them in `posts/posts.json`. Each post should include a `# Title`, `Authors:`, `Date:`, and `Image:` line followed by the content body.
-- **Team**: edit `team/team.md` using `## Name | Role`, optional `Image:`, and bullet points. Hiring notes live in `team/hiring.md`.
-- **Open sources**: update `sources/repos.json`.
-- **Scripts**: `assets/js/shared.js` holds the helpers (post loading, media elements, inline markdown); each page has its own small script. Markdown is rendered in the browser by [marked](https://github.com/markedjs/marked), pinned to v15 on jsDelivr in `index.html` and `post.html`.
+## Editing content
 
-Pages are optimized for a wide layout, white background, and a configurable blue accent via the `--color-accent` CSS variable in `assets/css/styles.css`.
+- **Hero**: `content/hero.md`. First line `# Title`, then `Kicker: …`, a blank line, and the lead paragraph (markdown; `**bold**` renders in the accent colour). The hero image is set in `content/home.json` (`heroImage`, `heroImageAlt`).
+- **About**: `content/about.md`, rendered as-is; `**bold**` renders in the accent colour.
+- **Research posts**: add a Markdown file under `posts/` and list it in `posts/posts.json`. Front matter keys: `Title`, `Date` (YYYY-MM-DD, used for newest-first ordering), `Author`, `Description`, `Image` (a poster `.jpg`, or a video plus `ThumbnailPoster`), optional `Publication`, `Publication Link` (`[Label](url)`, comma-separated), `DOI`.
+- **Team**: `team/team.md`
+  - `# Group` starts a section (the first group is the page heading; `Meta: Seoul` adds the "N members · Seoul" note).
+  - `## Name | Role` starts a person, followed by `Image: path`, optional `Link: [Google Scholar](url)`, and `- credential` bullets.
+  - `### Partner labs` starts the logo grid; one bullet per lab: `- [Name](url) | Institution | media/partner_logos/x.png` (the logo path is optional; without it the tile shows the institution name).
+- **Open positions**: `team/hiring.md`. `# Open positions` with a `Contact: …` line, then `## Title` per opening with `Location: …` and bullets: the first bullet is the requirement, the rest are joined with " · ".
+- **Header/footer**: `assets/header.html`, `assets/footer.html`.
+- **Scripts**: `assets/js/shared.js` holds the helpers; `home.js`, `team.js`, `post.js` render their pages. Markdown is rendered in the browser by [marked](https://github.com/markedjs/marked), pinned to v15 on jsDelivr in `index.html` and `post.html`.
+- **Design tokens** (colours, fonts, 960px column) live at the top of `assets/css/styles.css`. Fonts are Barlow and Barlow Condensed from Google Fonts.
+
+`sources.html` (open-source repositories from `sources/repos.json`) is kept but not linked from the navigation.
 
 ## Hosting (GitHub Pages)
 

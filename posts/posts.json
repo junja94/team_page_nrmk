@@ -1,6 +1,6 @@
 [
-  { "file": "soldering.md", "appearAtHome": true },
-  { "file": "zero-shot-picking.md", "appearAtHome": true },
-  { "file": "trajectory-safety.md", "appearAtHome": true },
-  { "file": "safe_lowlevel.md", "appearAtHome": false }
+  { "file": "soldering.md" },
+  { "file": "zero-shot-picking.md" },
+  { "file": "trajectory-safety.md" },
+  { "file": "safe_lowlevel.md" }
 ]

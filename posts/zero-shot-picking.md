@@ -4,7 +4,6 @@ Date: 2026-01-25
 Author: Neuromeka
 Image: media/thumbnails/zeroshot.jpg
 Description: A humanoid robot that picks any object on command — no prior training required — demonstrated live at CES 2026.
-Authors:  
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/R6eZ6yc7OLE?si=YxBECQ6-mGWbs0bH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

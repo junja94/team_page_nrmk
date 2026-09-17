@@ -4,6 +4,7 @@
 const HOME_CONFIG_URL = 'content/home.json';
 const POSTS_INDEX_URL = 'posts/posts.json';
 const POSTS_DIR = 'posts/';
+const RESEARCH_URL = 'index.html#research';
 const VIDEO_EXTENSIONS = ['.mp4', '.webm', '.ogg'];
 
 // ---- Fetching ---------------------------------------------------------------
@@ -26,26 +27,25 @@ function loadHomeConfig() {
   return fetchJson(HOME_CONFIG_URL).catch(() => ({}));
 }
 
-// ---- Posts ------------------------------------------------------------------
+// ---- Markdown front matter --------------------------------------------------
 
-function isVideoSource(path = '') {
-  const normalized = path.split('?')[0].toLowerCase();
-  return VIDEO_EXTENSIONS.some((ext) => normalized.endsWith(ext));
+const META_LINE = /^([A-Za-z][A-Za-z0-9 _-]*):\s*(.*)$/;
+
+/** "Publication Link" → "publicationlink" */
+function metaKey(name) {
+  return name.trim().toLowerCase().replace(/\s+/g, '');
 }
 
 /**
- * Parse a markdown post file.
+ * Parse a markdown file's front matter.
  * Supports YAML-style front matter (--- ... ---) or the legacy layout
- * (# Title followed by key: value lines). Keys are lower-cased with spaces removed.
+ * (# Title followed by key: value lines).
  * Returns { meta, body }.
  */
-function parsePost(markdown) {
+function parseFrontMatter(markdown) {
   const lines = markdown.split('\n');
   const meta = {};
-  const metaLine = /^([A-Za-z][A-Za-z0-9 _-]*):\s*(.*)$/;
-  const setMeta = (match) => {
-    meta[match[1].trim().toLowerCase().replace(/\s+/g, '')] = match[2].trim();
-  };
+  const setMeta = (match) => { meta[metaKey(match[1])] = match[2].trim(); };
   let i = 0;
 
   while (i < lines.length && !lines[i].trim()) i += 1;
@@ -55,7 +55,7 @@ function parsePost(markdown) {
     while (i < lines.length) {
       const line = lines[i].trim();
       if (line === '---') { i += 1; break; }
-      const match = line && line.match(metaLine);
+      const match = line && line.match(META_LINE);
       if (match) setMeta(match);
       i += 1;
     }
@@ -68,7 +68,7 @@ function parsePost(markdown) {
     for (; i < lines.length; i += 1) {
       const line = lines[i].trim();
       if (!line) { i += 1; break; }
-      const match = line.match(metaLine);
+      const match = line.match(META_LINE);
       if (!match) break;
       setMeta(match);
     }
@@ -77,9 +77,17 @@ function parsePost(markdown) {
   return { meta, body: lines.slice(i).join('\n').trim() };
 }
 
+// ---- Posts ------------------------------------------------------------------
+
+function isVideoSource(path = '') {
+  const normalized = path.split('?')[0].toLowerCase();
+  return VIDEO_EXTENSIONS.some((ext) => normalized.endsWith(ext));
+}
+
 /** Normalise parsed front matter into the shape the renderers expect. */
 function buildPostData(meta = {}, link = '', fallbackThumbnail = '') {
-  const thumbnailPath = meta.thumbnailpath || meta.thumbnail || meta.image || meta.video || meta.videopath || '';
+  const image = meta.thumbnailpath || meta.thumbnail || meta.image || meta.video || meta.videopath || '';
+  const poster = meta.thumbnailposter || '';
   return {
     title: meta.title || link,
     description: meta.description || '',
@@ -88,31 +96,14 @@ function buildPostData(meta = {}, link = '', fallbackThumbnail = '') {
     publication: meta.publication || '',
     publicationLink: meta.publicationlink || '',
     doi: meta.doi || '',
-    thumbnailPath: thumbnailPath || fallbackThumbnail,
-    thumbnailType: meta.thumbnailtype || '',
-    thumbnailPoster: meta.thumbnailposter || '',
+    // Listings show still images, so a video thumbnail falls back to its poster.
+    thumbnail: (isVideoSource(image) ? poster || '' : image) || poster || fallbackThumbnail,
     link,
   };
 }
 
-/** "Authors · Date", omitting whichever part is missing. */
-function formatPostMeta(post) {
-  return [post.authors, post.date].filter(Boolean).join(' · ');
-}
-
 function postUrl(filePath) {
   return `post.html?file=${filePath}`;
-}
-
-/** Accepts true/false, "yes"/"no", "1"/"0", "on"/"off"; missing values use the default. */
-function parseBooleanFlag(value, defaultValue = true) {
-  if (value === undefined || value === null) return defaultValue;
-  if (typeof value === 'string') {
-    const normalized = value.trim().toLowerCase();
-    if (['false', '0', 'no', 'off'].includes(normalized)) return false;
-    if (['true', '1', 'yes', 'on'].includes(normalized)) return true;
-  }
-  return Boolean(value);
 }
 
 /**
@@ -124,72 +115,43 @@ function loadPosts(fallbackThumbnail = '') {
     .then((index) => Promise.all((Array.isArray(index) ? index : []).map((entry) => {
       const filePath = POSTS_DIR + entry.file;
       return fetchText(filePath)
-        .then((md) => parsePost(md).meta)
+        .then((md) => parseFrontMatter(md).meta)
         .catch(() => ({ title: entry.file }))
-        .then((meta) => ({
-          ...buildPostData(meta, filePath, fallbackThumbnail),
-          appearAtHome: parseBooleanFlag(entry.appearAtHome, true),
-        }));
+        .then((meta) => buildPostData(meta, filePath, fallbackThumbnail));
     })))
     .then((posts) => posts.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0)));
 }
 
 // ---- DOM helpers ------------------------------------------------------------
 
-/**
- * Build an <img> or a muted, looping, inline <video> for a thumbnail or hero slide.
- * `type` overrides the extension-based detection; `autoplay` is on unless disabled.
- */
-function createMediaElement({ path, type, poster, label, autoplay = true, preload = 'auto' }) {
-  const mediaType = type || (isVideoSource(path) ? 'video' : 'image');
-  if (mediaType !== 'video') {
-    const img = document.createElement('img');
-    img.src = path;
-    img.alt = label || '';
-    return img;
-  }
-  const video = document.createElement('video');
-  // Both the property and the attribute are set: mobile browsers only allow
-  // autoplay when the attributes are present in the DOM.
-  video.muted = true;
-  video.setAttribute('muted', '');
-  video.loop = true;
-  video.setAttribute('loop', '');
-  video.playsInline = true;
-  video.setAttribute('playsinline', '');
-  video.setAttribute('webkit-playsinline', '');
-  if (autoplay) {
-    video.autoplay = true;
-    video.setAttribute('autoplay', '');
-  }
-  video.preload = preload;
-  if (poster) video.poster = poster;
-  if (label) video.setAttribute('aria-label', label);
-  video.src = path;
-  return video;
+function el(tag, className, text) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (text !== undefined && text !== '') node.textContent = text;
+  return node;
 }
 
-/** Make a whole card act as a link (click, Enter, Space) while real links inside it keep working. */
-function makeCardNavigable(card, url, label) {
-  card.setAttribute('role', 'link');
-  card.setAttribute('tabindex', '0');
-  if (label) card.setAttribute('aria-label', label);
-  const navigate = () => { window.location.href = url; };
-  card.addEventListener('click', (event) => {
-    if (event.target.closest('a')) return;
-    navigate();
-  });
-  card.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      navigate();
-    }
-  });
+/** A thumbnail image, or nothing when the post has no usable image. */
+function createThumbnail(post) {
+  if (!post.thumbnail) return null;
+  const img = document.createElement('img');
+  img.src = post.thumbnail;
+  img.alt = '';
+  img.loading = 'lazy';
+  return img;
+}
+
+/** Uppercase meta line: date in accent, authors muted. */
+function createMetaLine(post, className) {
+  const line = el('div', className);
+  if (post.date) line.appendChild(el('span', '', post.date));
+  if (post.authors) line.appendChild(el('span', 'post-row-authors', post.authors));
+  return line;
 }
 
 /**
  * Append a minimal subset of inline markdown to `parent` as DOM nodes:
- *   [text](url)  →  <a href="url" target="_blank">text</a>
+ *   [text](url)  →  <a href="url">text</a>   (external links open in a new tab)
  *   **text**     →  <strong>text</strong>
  * Everything else is inserted as plain text, so content never reaches innerHTML.
  */
@@ -202,8 +164,10 @@ function appendInlineMarkdown(parent, text) {
     if (match[1] !== undefined) {
       const link = document.createElement('a');
       link.href = match[2];
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
+      if (/^https?:/i.test(match[2])) {
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+      }
       appendInlineMarkdown(link, match[1]);
       parent.appendChild(link);
     } else {
@@ -214,4 +178,15 @@ function appendInlineMarkdown(parent, text) {
     last = match.index + match[0].length;
   }
   if (last < text.length) parent.append(text.slice(last));
+}
+
+/** Split "[Label](url) | Institution | logo.png" into its parts. */
+function splitPipes(text) {
+  return text.split('|').map((part) => part.trim());
+}
+
+/** Pull the first [label](href) out of a line; returns null when there is none. */
+function parseMarkdownLink(text) {
+  const match = text.match(/\[([^\]]+)\]\(([^)]+)\)/);
+  return match ? { label: match[1].trim(), href: match[2].trim() } : null;
 }

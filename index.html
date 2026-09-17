@@ -2,46 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Neuromeka AI Lab</title>
+  <meta name="description" content="Industrial AI robotics research and development at Neuromeka: field-ready AI for real production environments." />
   <link rel="icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700&family=Barlow+Condensed:wght@600&display=swap" />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <script src="https://cdn.jsdelivr.net/npm/marked@15/marked.min.js"></script>
 </head>
 <body>
   <div id="siteHeader"></div>
 
-  <main>
-    <section class="hero" id="hero">
-      <div class="hero-slider" id="heroSlider">
-        <div class="hero-media" id="heroMedia"></div>
-        <button class="slider-control prev" aria-label="Previous media" id="heroPrev">&#10094;</button>
-        <button class="slider-control next" aria-label="Next media" id="heroNext">&#10095;</button>
-        <div class="hero-overlay">
-          <h1>Next-Generation Industrial Robotics with AI</h1>
-          <div id="heroCopy" class="markdown"></div>
-        </div>
+  <main class="wrap wrap-home">
+    <section class="hero">
+      <div class="hero-text">
+        <p class="kicker" id="heroKicker"></p>
+        <h1 id="heroTitle"></h1>
+        <div class="hero-lead" id="heroLead"></div>
       </div>
+      <figure class="hero-figure">
+        <img id="heroImage" alt="" />
+      </figure>
     </section>
 
-    <section class="section" id="core-tech">
-      <div class="section-header">
-        <h2>Research highlights</h2>
-        <!-- <p>Research & Media highlights</p> -->
-      </div>
-      <div class="carousel" id="techCarousel">
-        <div class="carousel-track" id="techTrack"></div>
-        <button class="slider-control prev" aria-label="Previous" id="techPrev">&#10094;</button>
-        <button class="slider-control next" aria-label="Next" id="techNext">&#10095;</button>
-      </div>
-      <div class="carousel-dots" id="techDots"></div>
+    <section class="about">
+      <h2>About us</h2>
+      <div class="about-body" id="aboutContent"></div>
     </section>
 
-    <section class="section about-section" id="about">
-      <div class="section-header">
-        <h2>About us</h2>
+    <section class="research" id="research">
+      <div class="section-head">
+        <h2>Research</h2>
+        <span class="section-meta" id="postCount"></span>
       </div>
-      <div class="about-content markdown" id="aboutContent"></div>
+      <div id="postList"></div>
     </section>
   </main>
 
@@ -49,6 +45,6 @@
 
   <script src="assets/js/layout.js"></script>
   <script src="assets/js/shared.js"></script>
-  <script src="assets/js/script.js"></script>
+  <script src="assets/js/home.js"></script>
 </body>
 </html>

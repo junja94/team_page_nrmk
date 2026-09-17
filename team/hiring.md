@@ -1,26 +1,20 @@
-
-# Open Positions & Contact
-
-### Contact
-- Please send your CV to [Joonho Lee](mailto:joonho.lee@neuromeka.com) (joonho.lee@neuromeka.com).
-- We are looking for creative and motivated team players!
+# Open positions
+Contact: We are looking for creative and motivated team players! Send your CV to [joonho.lee@neuromeka.com](mailto:joonho.lee@neuromeka.com)
 
 ## Senior in Robotics & AI
-Image: media/team_pic/bio-photo.jpg
-- **PhD or equivalent experience in robotics and AI**
-- Preferred background: Mechanical Engineering, Computer Science
-- Focus: System design, Robot learning, and Control
-- Location: Seoul, South Korea
+Location: Seoul
+- PhD or equivalent experience in robotics and AI
+- Mechanical Engineering or Computer Science background
+- System design, robot learning, and control
 
 ## Researcher
-- **Master’s degree in related field**
-- Preferred background: Mechanical Engineering
-- Reinforcement learning (RL) & sim-to-real transfer
-- Mechanical design experience is highly appreciated
-- Location: Seoul, South Korea
+Location: Seoul
+- Master's degree in related field
+- Mechanical Engineering background
+- RL & sim-to-real transfer
+- Mechanical design experience appreciated
 
 ## Research Intern (~3 months)
-Image: media/team_pic/bio-photo.jpg
+Location: Seoul or Pohang
 - Undergraduate or graduate students in Robotics
 - Prototyping, experiments, and benchmarking AI models
-- Location: Seoul or Pohang, South Korea
