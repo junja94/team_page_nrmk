@@ -20,8 +20,8 @@
   "scholarUrl": "https://scholar.google.com/citations?user=6Htb7swAAAAJ&hl=en",
   "mosaic": {
     "layout": "custom",
-    "columns": 3,
-    "rowHeight": 180,
+    "columns": 4,
+    "rowHeight": 140,
     "tiles": [
       {
         "src": "media/profile/scirobotics-cover-2020.jpg",
@@ -29,12 +29,6 @@
         "rows": 2,
         "position": "top",
         "caption": "Science Robotics cover, 2020"
-      },
-      {
-        "src": "media/profile/wheeled-legged-alpine.jpg",
-        "cols": 2,
-        "rows": 2,
-        "caption": "Wheeled-legged robots in the field"
       },
       {
         "src": "media/profile/anymal-field-monkeys.jpg",
@@ -48,6 +42,12 @@
         "rows": 2,
         "position": "25% 50%",
         "caption": "Powder dispensing"
+      },
+      {
+        "src": "media/profile/wheeled-legged-alpine.jpg",
+        "cols": 1,
+        "rows": 1,
+        "caption": "Wheeled-legged robots in the field"
       },
       {
         "src": "media/profile/anymal-forest-hike.jpg",
