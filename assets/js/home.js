@@ -2,15 +2,47 @@
 
 const DEFAULT_HERO_COPY_URL = 'content/hero.md';
 const DEFAULT_HERO_IMAGE = 'media/hero/eir_gemini.jpg';
+const HERO_AUTOPLAY_MS = 5000;
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// ---- Hero and about ---------------------------------------------------------
+// ---- Hero image(s) -----------------------------------------------------------
+
+/** Accepts the current {heroImages: [{src, alt}]} shape, or a single legacy heroImage/heroImageAlt pair. */
+function resolveHeroImages(config) {
+  if (Array.isArray(config.heroImages) && config.heroImages.length) {
+    return config.heroImages.filter((item) => item && item.src);
+  }
+  return [{ src: config.heroImage || DEFAULT_HERO_IMAGE, alt: config.heroImageAlt || '' }];
+}
+
+function renderHeroImages(images) {
+  const figure = document.getElementById('heroFigure');
+  if (!figure) return;
+  figure.innerHTML = '';
+  const slides = images.map((item, i) => {
+    const img = el('img', 'hero-slide');
+    img.src = item.src;
+    img.alt = item.alt || '';
+    if (i === 0) img.classList.add('active');
+    figure.appendChild(img);
+    return img;
+  });
+
+  // A single image needs no rotation; more than one crossfades automatically
+  // unless the viewer has asked for reduced motion.
+  if (slides.length <= 1 || prefersReducedMotion) return;
+  let index = 0;
+  setInterval(() => {
+    slides[index].classList.remove('active');
+    index = (index + 1) % slides.length;
+    slides[index].classList.add('active');
+  }, HERO_AUTOPLAY_MS);
+}
+
+// ---- Hero copy and about -----------------------------------------------------
 
 function renderHero(config) {
-  const image = document.getElementById('heroImage');
-  if (image) {
-    image.src = config.heroImage || DEFAULT_HERO_IMAGE;
-    image.alt = config.heroImageAlt || '';
-  }
+  renderHeroImages(resolveHeroImages(config));
 
   const url = typeof config.heroCopyUrl === 'string' && config.heroCopyUrl.trim()
     ? config.heroCopyUrl.trim()

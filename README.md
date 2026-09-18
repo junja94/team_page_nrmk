@@ -4,7 +4,7 @@ Static two-page site hosted on GitHub Pages (moved from the internal GitLab on 2
 
 ## Editing content
 
-- **Hero**: `content/hero.md`. First line `# Title`, then `Kicker: …`, a blank line, and the lead paragraph (markdown; `**bold**` renders in the accent colour). The hero image is set in `content/home.json` (`heroImage`, `heroImageAlt`).
+- **Hero**: `content/hero.md`. First line `# Title`, then `Kicker: …`, a blank line, and the lead paragraph (markdown; `**bold**` renders in the accent colour). The hero image(s) are set in `content/home.json` as `heroImages: [{ "src": "...", "alt": "..." }, ...]`; with two or more entries the images crossfade automatically every 5s (disabled for viewers who set `prefers-reduced-motion`). A single entry — or the older `heroImage`/`heroImageAlt` keys — shows a static image.
 - **About**: `content/about.md`, rendered as-is; `**bold**` renders in the accent colour.
 - **Research posts**: add a Markdown file under `posts/` and list it in `posts/posts.json`. Front matter keys: `Title`, `Date` (YYYY-MM-DD, used for newest-first ordering), `Author`, `Description`, `Image` (a poster `.jpg`, or a video plus `ThumbnailPoster`), optional `Publication`, `Publication Link` (`[Label](url)`, comma-separated), `DOI`.
 - **Team**: `team/team.md`
