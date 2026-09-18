@@ -241,7 +241,7 @@ function renderPublications(profile) {
     const meta = el('div', 'pub-meta');
     if (pub.venue) meta.appendChild(el('span', 'pub-venue', pub.venue));
     if (pub.award) meta.appendChild(el('span', 'badge', pub.award));
-    if (pub.link) meta.appendChild(externalLink('Project page', pub.link));
+    if (pub.link) meta.appendChild(externalLink('Link', pub.link));
     body.appendChild(meta);
     row.appendChild(body);
     host.appendChild(row);
