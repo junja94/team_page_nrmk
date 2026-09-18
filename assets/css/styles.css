@@ -801,14 +801,17 @@ a.mosaic-tile:hover .mosaic-caption-title {
   color: var(--color-meta);
 }
 
+/* Dark scrim: the gradient starts well above the text so bright photo
+   areas (snow, sky, white robot arms) never sit directly behind it. */
 .mosaic-caption {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 8px 10px;
+  padding: 36px 10px 8px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.35) 55%, rgba(0, 0, 0, 0) 100%);
   color: #fff;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), 0 0 6px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
   pointer-events: none;
 }
 
@@ -828,7 +831,7 @@ a.mosaic-tile:hover .mosaic-caption-title {
 
 /* Single-column tiles are small; keep their paper titles from filling them. */
 .mosaic-tile[data-cols='1'] .mosaic-caption {
-  padding: 6px 8px;
+  padding: 28px 8px 6px;
 }
 
 .mosaic-tile[data-cols='1'] .mosaic-caption-title {

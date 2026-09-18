@@ -27,37 +27,29 @@
       {
         "src": "media/thumbnails/solder_zoom.mp4",
         "poster": "media/thumbnails/solder_zoom_poster.jpg",
-        "cols": 2,
+        "cols": 3,
         "rows": 2,
         "caption": "Learning-augmented robotic automation for real-world manufacturing",
         "sub": "arXiv 2026 · under review, Nature Communications",
         "href": "https://arxiv.org/abs/2604.22235"
       },
       {
-        "src": "media/thumbnails/left_to_right.mp4",
-        "poster": "media/thumbnails/left_to_right_poster.jpg",
+        "src": "media/profile/powder-dispensing.jpg",
         "cols": 2,
         "rows": 2,
-        "caption": "Learning fast, tool-aware collision avoidance for collaborative robots",
-        "sub": "IEEE RA-L 2025",
-        "href": "https://arxiv.org/abs/2508.20457"
-      },
-      {
-        "src": "media/profile/powder-dispensing.jpg",
-        "cols": 1,
-        "rows": 2,
-        "position": "25% 50%",
+        "position": "50% 45%",
         "caption": "Powder dispensing with a cobot",
         "sub": "Neuromeka"
       },
       {
-        "src": "media/thumbnails/zeroshot.jpg",
+        "src": "media/thumbnails/left_to_right.mp4",
+        "poster": "media/thumbnails/left_to_right_poster.jpg",
         "cols": 1,
         "rows": 2,
-        "position": "50% 50%",
-        "caption": "Zero-shot object picking with a humanoid",
-        "sub": "CES 2026",
-        "href": "post.html?file=posts/zero-shot-picking.md"
+        "caption": "Learning fast, tool-aware collision avoidance for collaborative robots",
+        "sub": "IEEE RA-L 2025",
+        "href": "https://arxiv.org/abs/2508.20457",
+        "position": "50% 50%"
       },
       {
         "src": "media/profile/scirobotics-cover-2020.jpg",
@@ -239,11 +231,6 @@
       "year": "2019",
       "title": "Willi Studer Prize (Best Graduate), Robotics, Systems and Control",
       "by": "D-MAVT, ETH Zurich"
-    },
-    {
-      "year": "2012–15",
-      "title": "Korean National Scholarship for Science and Engineering",
-      "by": ""
     }
   ],
   "students": [
