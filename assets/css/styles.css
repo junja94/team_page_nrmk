@@ -936,14 +936,17 @@ a.mosaic-tile:hover .mosaic-caption-title {
   text-align: right;
 }
 
+/* One line per talk: the venue column hugs its text, the title takes the rest. */
 .talk-row {
   display: grid;
-  grid-template-columns: 96px minmax(0, 1fr) minmax(0, 260px);
-  gap: 14px;
+  grid-template-columns: 80px minmax(0, 1fr) max-content;
+  gap: 14px 20px;
+  align-items: baseline;
   padding: 7px 0;
   border-bottom: 1px solid var(--color-divider);
   font-size: 13px;
   line-height: 1.45;
+  white-space: nowrap;
 }
 
 .talk-date {
@@ -953,6 +956,8 @@ a.mosaic-tile:hover .mosaic-caption-title {
 
 .talk-title {
   font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .talk-venue {
@@ -1260,8 +1265,11 @@ a.mosaic-tile:hover .mosaic-caption-title {
     padding: 16px;
   }
 
+  /* Phones: title and venue may wrap, venue drops under the title. */
   .talk-row {
-    grid-template-columns: 96px minmax(0, 1fr);
+    grid-template-columns: 80px minmax(0, 1fr);
+    gap: 2px 14px;
+    white-space: normal;
   }
 
   .talk-venue {
