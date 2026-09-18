@@ -30,7 +30,7 @@
         "poster": "media/thumbnails/solder_zoom_poster.jpg",
         "cols": 2,
         "rows": 2,
-        "caption": "Learning-augmented robotic automation for real-world manufacturing",
+        "caption": "Learned robot soldering, validated on a live factory floor",
         "sub": "under review, Nature Communications",
         "href": "https://arxiv.org/abs/2604.22235"
       },
@@ -40,7 +40,7 @@
         "cols": 2,
         "rows": 2,
         "position": "42% 50%",
-        "caption": "Proprioceptive reflex learning for contact-rich manipulation",
+        "caption": "Proprioceptive reflex for contact-rich manipulation",
         "sub": "Submitted to ICRA 2027"
       },
       {
@@ -56,7 +56,7 @@
         "poster": "media/thumbnails/left_to_right_poster.jpg",
         "cols": 2,
         "rows": 2,
-        "caption": "Learning fast, tool-aware collision avoidance for collaborative robots",
+        "caption": "Fast collision avoidance for cobots",
         "sub": "IEEE RA-L 2025",
         "href": "https://arxiv.org/abs/2508.20457",
         "position": "50% 50%"
@@ -82,7 +82,7 @@
         "src": "media/profile/anymal-on-wheels.webp",
         "cols": 2,
         "rows": 2,
-        "caption": "Learning robust autonomous navigation and locomotion for wheeled-legged robots",
+        "caption": "Autonomous navigation for wheeled-legged robots",
         "sub": "Science Robotics 2024",
         "href": "https://www.science.org/doi/10.1126/scirobotics.adi9641"
       },
