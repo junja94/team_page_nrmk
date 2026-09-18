@@ -13,7 +13,7 @@
 //     - bullet              credentials; for an opening, the first bullet is the
 //                           requirement and the rest are joined with " · "
 //   ### Partner labs        a labelled sub-block, one bullet per lab:
-//     - [Name](url) | Institution | optional/logo.png
+//     - [Name](url) | Institution | optional/logo.svg  (shown small, right of the name)
 
 const TEAM_URL = 'team/team.md';
 const HIRING_URL = 'team/hiring.md';
@@ -119,19 +119,6 @@ function buildPartnerLab(bullet) {
   const name = link ? link.label : nameField;
 
   const lab = el('div', 'partner-lab');
-  const tile = el('div', 'partner-lab-logo');
-  if (logo) {
-    const img = document.createElement('img');
-    img.src = logo;
-    img.alt = `${name} logo`;
-    img.loading = 'lazy';
-    tile.appendChild(img);
-  } else {
-    // No logo supplied yet: the tile carries the institution name instead.
-    tile.appendChild(el('span', '', institution || name));
-  }
-  lab.appendChild(tile);
-
   const label = el(link ? 'a' : 'div', 'partner-lab-link');
   if (link) {
     label.href = link.href;
@@ -141,6 +128,16 @@ function buildPartnerLab(bullet) {
   label.appendChild(el('span', 'partner-lab-name', name));
   if (institution) label.appendChild(el('span', 'partner-lab-inst', institution));
   lab.appendChild(label);
+
+  // Small institution mark to the right of the name; nothing when no logo is given.
+  if (logo) {
+    const img = document.createElement('img');
+    img.className = 'partner-lab-mark';
+    img.src = logo;
+    img.alt = `${institution || name} logo`;
+    img.loading = 'lazy';
+    lab.appendChild(img);
+  }
   return lab;
 }
 

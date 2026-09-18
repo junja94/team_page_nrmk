@@ -35,7 +35,7 @@
       },
       {
         "src": "media/profile/powder-dispensing.jpg",
-        "cols": 2,
+        "cols": 1,
         "rows": 2,
         "position": "50% 45%",
         "caption": "Powder dispensing with a cobot",
@@ -44,7 +44,7 @@
       {
         "src": "media/thumbnails/left_to_right.mp4",
         "poster": "media/thumbnails/left_to_right_poster.jpg",
-        "cols": 1,
+        "cols": 2,
         "rows": 2,
         "caption": "Learning fast, tool-aware collision avoidance for collaborative robots",
         "sub": "IEEE RA-L 2025",

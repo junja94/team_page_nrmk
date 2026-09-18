@@ -37,6 +37,6 @@ Image: media/team_pic/seungmin.jpg
 - BSc., POSTECH
 
 ### Partner labs
-- [Sehoon Ha](https://faculty.cc.gatech.edu/~sha9/) | Georgia Tech
-- [Intelligent Robotic Systems Lab.](https://sites.google.com/view/kaist-roboticslab) | KAIST
-- [Robotics Lab.](http://rnb.postech.ac.kr/) | POSTECH
+- [Sehoon Ha](https://faculty.cc.gatech.edu/~sha9/) | Georgia Tech | media/partner_logos/gatech.svg
+- [Intelligent Robotic Systems Lab.](https://sites.google.com/view/kaist-roboticslab) | KAIST | media/partner_logos/kaist.svg
+- [Robotics Lab.](http://rnb.postech.ac.kr/) | POSTECH | media/partner_logos/postech.svg
