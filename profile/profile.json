@@ -2,7 +2,7 @@
   "name": "Joonho Lee",
   "photo": "media/team_pic/joonho.jpeg",
   "role": "Group Leader, Neuromeka AI Lab · Advisor, RIVR",
-  "status": "On military duty until 2027.4.30. (Technical Research Personnel at Neuromeka)",
+  "status": "On military duty (until 2027.4.30., Technical Research Personnel)",
   "bio": "Robotics researcher and systems integrator with field experience. PhD from the Robotic Systems Lab at ETH Zurich on legged robotics; now leading AI research for industrial robots at Neuromeka.",
   "links": [
     {
@@ -123,7 +123,7 @@
     {
       "when": "2012 – 2016",
       "org": "POSTECH",
-      "degree": "BSc Mechanical Engineering · Magna Cum Laude, Rank 2/17"
+      "degree": "BSc Mechanical Engineering · Rank 2/17"
     }
   ],
   "funding": [
@@ -149,7 +149,7 @@
   ],
   "publications": [
     {
-      "year": 2026,
+      "year": "—",
       "title": "Proprioceptive reflex learning for contact-rich manipulation",
       "authors": "Quan Nguyen, Yunho Kim, Joonho Lee",
       "venue": "Submitted to ICRA 2027",
