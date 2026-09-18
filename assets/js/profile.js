@@ -36,7 +36,8 @@ function headWithMeta(title, metaNode) {
 function externalLink(label, href, className = '') {
   const link = el('a', className, label);
   link.href = href;
-  if (/^https?:/i.test(href)) {
+  // Off-site links and PDFs open in a new tab.
+  if (/^https?:/i.test(href) || /\.pdf($|[?#])/i.test(href)) {
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
   }
