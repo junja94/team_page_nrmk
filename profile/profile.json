@@ -2,7 +2,7 @@
   "name": "Joonho Lee",
   "photo": "media/team_pic/joonho.jpeg",
   "role": "Group Leader, Neuromeka AI Lab · Advisor, RIVR",
-  "status": "Currently on military service (civil service track) until 30 April 2027",
+  "status": "On military duty (Technical Research Personnel) until 2027.4.30",
   "bio": "Robotics researcher and systems integrator with field experience. PhD from the Robotic Systems Lab at ETH Zurich on learning-based locomotion and navigation for legged robots; now leading learning-based control and manipulation for industrial robots at Neuromeka.",
   "links": [
     {
@@ -346,7 +346,7 @@
     {
       "date": "2019.02.13",
       "title": "시뮬레이션에서의 심층강화학습을 이용한 보행로봇 제어",
-      "venue": "Korea Institute of Industrial Technology (KITECH)"
+      "venue": "Korea Institute of Industrial Technology"
     },
     {
       "date": "2019.02.11",

@@ -164,7 +164,7 @@ function renderHonors(profile) {
     (profile.awards || []).map((h) => dateRow(String(h.year), h.title, h.by, 'date-48'))));
 
   const students = el('div', 'section-rows');
-  students.appendChild(headWithMeta('Students & mentoring'));
+  students.appendChild(headWithMeta('Former students & mentees'));
   (profile.students || []).forEach((s) => {
     const row = el('div', 'student-row');
     row.appendChild(el('div', 'student-name', s.name));
