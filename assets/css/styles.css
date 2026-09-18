@@ -740,6 +740,16 @@ h2 {
   gap: 8px;
 }
 
+/* Uniform photo grid: N equal columns, every tile the same aspect ratio. */
+.mosaic-grid {
+  grid-template-columns: repeat(var(--mosaic-cols, 3), minmax(0, 1fr));
+  grid-auto-rows: auto;
+}
+
+.mosaic-grid .mosaic-tile {
+  aspect-ratio: var(--mosaic-aspect, 4 / 3);
+}
+
 .mosaic-tile {
   position: relative;
   overflow: hidden;

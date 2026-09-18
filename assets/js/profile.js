@@ -3,7 +3,10 @@
 const PROFILE_URL = 'profile/profile.json';
 
 // Mosaic presets: [columns, rows] per tile on a 4-column grid.
+// "grid" is the exception: every tile is the same size on a grid of
+// `mosaic.columns` columns (default 3) with a fixed aspect ratio.
 const MOSAIC_LAYOUTS = {
+  grid: [[1, 1]],
   hero: [[2, 2], [2, 1], [1, 1], [1, 1], [1, 1], [3, 1]],
   even: [[2, 1], [2, 1], [2, 1], [2, 1], [2, 1], [2, 1]],
   strip: [[1, 1], [1, 1], [1, 1], [1, 1], [2, 1], [2, 1]],
@@ -65,8 +68,15 @@ function renderMosaic(mosaic = {}) {
   const tiles = Array.isArray(mosaic.tiles) ? mosaic.tiles : [];
   if (!tiles.length) { host.hidden = true; return; }
 
-  const spans = MOSAIC_LAYOUTS[mosaic.layout] || MOSAIC_LAYOUTS.hero;
-  host.style.setProperty('--mosaic-row', `${Number(mosaic.rowHeight) || 150}px`);
+  const layout = MOSAIC_LAYOUTS[mosaic.layout] ? mosaic.layout : 'hero';
+  const spans = MOSAIC_LAYOUTS[layout];
+  if (layout === 'grid') {
+    host.classList.add('mosaic-grid');
+    host.style.setProperty('--mosaic-cols', String(Number(mosaic.columns) || 3));
+    host.style.setProperty('--mosaic-aspect', mosaic.aspect || '4 / 3');
+  } else {
+    host.style.setProperty('--mosaic-row', `${Number(mosaic.rowHeight) || 150}px`);
+  }
 
   tiles.forEach((tile, i) => {
     const [cols, rows] = spans[i % spans.length];
