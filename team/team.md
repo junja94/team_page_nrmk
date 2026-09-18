@@ -36,12 +36,10 @@ Image: media/team_pic/taewhan.jpg
 ## Geontae Park
 Image: media/team_pic/geontae.jpg
 - Master's Program, POSTECH
-- BSc., POSTECH
 
 ## Seungmin Son
 Image: media/team_pic/seungmin.jpg
 - Master's Program, POSTECH
-- BSc., POSTECH
 
 ### Partner labs
 - [Robotics Lab.](http://rnb.postech.ac.kr/) | POSTECH | media/partner_logos/postech.svg
