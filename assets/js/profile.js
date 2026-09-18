@@ -166,31 +166,11 @@ function renderCareer(profile) {
     visible(profile.education).map((e) => dateRow(e.when, e.org, e.degree))));
 }
 
-function renderHonors(profile) {
-  const host = document.getElementById('profileHonors');
-  if (!host) return;
-  host.appendChild(column('Awards',
-    visible(profile.awards).map((h) => dateRow(String(h.year), h.title, h.by, 'date-48'))));
+// ---- Funding and awards (side by side) ---------------------------------------
 
-  const students = el('div', 'section-rows');
-  students.appendChild(headWithMeta('Former students & mentees'));
-  visible(profile.students).forEach((s) => {
-    const row = el('div', 'student-row');
-    row.appendChild(s.link ? externalLink(s.name, s.link, 'student-name') : el('div', 'student-name', s.name));
-    if (s.note) row.appendChild(el('div', 'student-note', s.note));
-    students.appendChild(row);
-  });
-  host.appendChild(students);
-}
-
-// ---- Funding ----------------------------------------------------------------
-
-function renderFunding(profile) {
-  const host = document.getElementById('profileFunding');
-  const grants = visible(profile.funding);
-  if (!host) return;
-  if (!grants.length) { host.hidden = true; return; }
-  host.appendChild(headWithMeta('Funding'));
+function buildFundingColumn(grants) {
+  const col = el('div', 'section-rows');
+  col.appendChild(headWithMeta('Funding'));
   grants.forEach((g) => {
     const row = el('div', 'funding-row');
     row.appendChild(el('div', 'dated-row-when', g.when || ''));
@@ -199,8 +179,36 @@ function renderFunding(profile) {
     if (g.program) body.appendChild(el('div', 'funding-program', g.program));
     if (g.role) body.appendChild(el('div', 'funding-role', g.role));
     if (g.partners) body.appendChild(el('div', 'funding-meta', `Partners: ${g.partners}`));
+    if (g.amount) body.appendChild(el('div', 'funding-amount', g.amount));
     row.appendChild(body);
-    if (g.amount) row.appendChild(el('div', 'funding-amount', g.amount));
+    col.appendChild(row);
+  });
+  return col;
+}
+
+function renderFundingAwards(profile) {
+  const host = document.getElementById('profileFundingAwards');
+  if (!host) return;
+  const grants = visible(profile.funding);
+  const awards = visible(profile.awards);
+  if (grants.length) host.appendChild(buildFundingColumn(grants));
+  if (awards.length) {
+    host.appendChild(column('Awards',
+      awards.map((h) => dateRow(String(h.year), h.title, h.by, 'date-48'))));
+  }
+  if (!grants.length && !awards.length) host.hidden = true;
+}
+
+function renderStudents(profile) {
+  const host = document.getElementById('profileStudents');
+  if (!host) return;
+  const students = visible(profile.students);
+  if (!students.length) { host.hidden = true; return; }
+  host.appendChild(headWithMeta('Former students & mentees'));
+  students.forEach((s) => {
+    const row = el('div', 'student-row');
+    row.appendChild(s.link ? externalLink(s.name, s.link, 'student-name') : el('div', 'student-name', s.name));
+    if (s.note) row.appendChild(el('div', 'student-note', s.note));
     host.appendChild(row);
   });
 }
@@ -258,9 +266,9 @@ fetchJson(PROFILE_URL)
     renderHead(profile);
     renderMosaic(profile.mosaic);
     renderCareer(profile);
-    renderFunding(profile);
+    renderFundingAwards(profile);
     renderPublications(profile);
-    renderHonors(profile);
+    renderStudents(profile);
     renderTalks(profile);
   })
   .catch(() => {

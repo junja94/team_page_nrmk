@@ -894,8 +894,8 @@ a.mosaic-tile:hover .mosaic-caption-title {
 
 .funding-row {
   display: grid;
-  grid-template-columns: 88px minmax(0, 1fr) auto;
-  gap: 14px 20px;
+  grid-template-columns: 88px minmax(0, 1fr);
+  gap: 14px;
   align-items: start;
   padding: 7px 0;
   border-bottom: 1px solid var(--color-divider);
@@ -935,6 +935,8 @@ a.funding-title:hover {
 }
 
 .funding-amount {
+  align-self: start;
+  margin-top: 4px;
   font-size: 11px;
   letter-spacing: 0.02em;
   padding: 3px 10px;
@@ -1371,15 +1373,6 @@ a.student-name {
     grid-column: 2;
   }
 
-  .funding-row {
-    grid-template-columns: 88px minmax(0, 1fr);
-    gap: 6px 14px;
-  }
-
-  .funding-amount {
-    grid-column: 2;
-    justify-self: start;
-  }
 
   .post-head h1,
   .page-title {
