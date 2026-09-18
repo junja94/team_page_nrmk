@@ -923,10 +923,13 @@ a.funding-title:hover {
   color: var(--color-secondary);
 }
 
+/* The PI's own role on the grant, set apart in the accent colour. */
+.funding-role {
+  font-weight: 500;
+  color: var(--color-accent-bright);
+}
+
 .funding-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2px 14px;
   font-size: 12px;
   color: var(--color-meta);
 }

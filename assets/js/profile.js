@@ -192,9 +192,8 @@ function renderFunding(profile) {
     const body = el('div', 'funding-body');
     body.appendChild(g.link ? externalLink(g.title, g.link, 'funding-title') : el('div', 'funding-title', g.title));
     if (g.program) body.appendChild(el('div', 'funding-program', g.program));
-    const meta = el('div', 'funding-meta');
-    [g.role, g.partners].filter(Boolean).forEach((text) => meta.appendChild(el('span', '', text)));
-    if (meta.childNodes.length) body.appendChild(meta);
+    if (g.role) body.appendChild(el('div', 'funding-role', g.role));
+    if (g.partners) body.appendChild(el('div', 'funding-meta', `Partners: ${g.partners}`));
     row.appendChild(body);
     if (g.amount) row.appendChild(el('div', 'funding-amount', g.amount));
     host.appendChild(row);
