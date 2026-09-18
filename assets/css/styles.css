@@ -892,6 +892,54 @@ a.mosaic-tile:hover .mosaic-caption-title {
   color: var(--color-secondary);
 }
 
+.funding-row {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr) auto;
+  gap: 14px 20px;
+  align-items: start;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--color-divider);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.funding-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.funding-title {
+  font-weight: 500;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+a.funding-title:hover {
+  color: var(--color-accent-bright);
+}
+
+.funding-program {
+  color: var(--color-secondary);
+}
+
+.funding-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 14px;
+  font-size: 12px;
+  color: var(--color-meta);
+}
+
+.funding-amount {
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  padding: 3px 10px;
+  background: var(--color-badge-bg);
+  color: var(--color-badge-text);
+  white-space: nowrap;
+}
+
 .pub-row {
   display: grid;
   grid-template-columns: 48px minmax(0, 1fr);
@@ -1314,6 +1362,16 @@ a.mosaic-tile:hover .mosaic-caption-title {
 
   .talk-venue {
     grid-column: 2;
+  }
+
+  .funding-row {
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: 6px 14px;
+  }
+
+  .funding-amount {
+    grid-column: 2;
+    justify-self: start;
   }
 
   .post-head h1,

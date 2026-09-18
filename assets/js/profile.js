@@ -178,6 +178,29 @@ function renderHonors(profile) {
   host.appendChild(students);
 }
 
+// ---- Funding ----------------------------------------------------------------
+
+function renderFunding(profile) {
+  const host = document.getElementById('profileFunding');
+  const grants = profile.funding || [];
+  if (!host) return;
+  if (!grants.length) { host.hidden = true; return; }
+  host.appendChild(headWithMeta('Funding'));
+  grants.forEach((g) => {
+    const row = el('div', 'funding-row');
+    row.appendChild(el('div', 'dated-row-when', g.when || ''));
+    const body = el('div', 'funding-body');
+    body.appendChild(g.link ? externalLink(g.title, g.link, 'funding-title') : el('div', 'funding-title', g.title));
+    if (g.program) body.appendChild(el('div', 'funding-program', g.program));
+    const meta = el('div', 'funding-meta');
+    [g.role, g.partners].filter(Boolean).forEach((text) => meta.appendChild(el('span', '', text)));
+    if (meta.childNodes.length) body.appendChild(meta);
+    row.appendChild(body);
+    if (g.amount) row.appendChild(el('div', 'funding-amount', g.amount));
+    host.appendChild(row);
+  });
+}
+
 // ---- Publications -----------------------------------------------------------
 
 function renderPublications(profile) {
@@ -231,6 +254,7 @@ fetchJson(PROFILE_URL)
     renderHead(profile);
     renderMosaic(profile.mosaic);
     renderCareer(profile);
+    renderFunding(profile);
     renderPublications(profile);
     renderHonors(profile);
     renderTalks(profile);
