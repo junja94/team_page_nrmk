@@ -30,6 +30,9 @@
   --color-badge-bg: #eef6ff;
   --color-badge-text: #2c455d;
 
+  /* Status notes such as leave or service periods. */
+  --color-status: #2e8b57;
+
   --font-body: 'Barlow', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-head: 'Barlow Condensed', 'Barlow', system-ui, sans-serif;
 
@@ -714,6 +717,13 @@ h2 {
 .profile-role {
   font-size: 13px;
   color: var(--color-muted);
+}
+
+.profile-status {
+  margin-top: 2px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-status);
 }
 
 .profile-bio {

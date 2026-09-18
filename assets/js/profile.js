@@ -53,6 +53,7 @@ function renderHead(profile) {
   const identity = el('div', 'profile-identity');
   identity.appendChild(el('h1', 'page-title', profile.name));
   if (profile.role) identity.appendChild(el('div', 'profile-role', profile.role));
+  if (profile.status) identity.appendChild(el('div', 'profile-status', profile.status));
   body.appendChild(identity);
   if (profile.bio) body.appendChild(el('p', 'profile-bio', profile.bio));
   if (Array.isArray(profile.links) && profile.links.length) {
