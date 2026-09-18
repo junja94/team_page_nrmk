@@ -184,6 +184,14 @@
       "venue": "Science Robotics 5(47)",
       "award": "IEEE RAS TC-MBOR Best Paper Award",
       "link": "https://leggedrobotics.github.io/rl-blindloco/"
+    },
+    {
+      "year": 2019,
+      "title": "Learning agile and dynamic motor skills for legged robots",
+      "authors": "Jemin Hwangbo, Joonho Lee, Alexey Dosovitskiy, Dario Bellicoso, Vassilios Tsounis, Vladlen Koltun, Marco Hutter",
+      "venue": "Science Robotics 4(26)",
+      "award": "",
+      "link": ""
     }
   ],
   "awards": [
