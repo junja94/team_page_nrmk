@@ -36,12 +36,6 @@
         "caption": "Wheeled-legged navigation and locomotion in the field · Science Robotics 2024"
       },
       {
-        "src": "media/profile/anymal-field-monkeys.jpg",
-        "cols": 1,
-        "rows": 1,
-        "caption": "ANYmal on a field deployment, with curious company"
-      },
-      {
         "src": "media/profile/anymal-forest-hike.jpg",
         "cols": 1,
         "rows": 1,
@@ -49,18 +43,24 @@
         "caption": "Perceptive locomotion in the wild · Science Robotics 2022"
       },
       {
+        "src": "media/thumbnails/left_to_right.mp4",
+        "poster": "media/thumbnails/left_to_right_poster.jpg",
+        "cols": 1,
+        "rows": 1,
+        "caption": "Tool-aware collision avoidance for cobots · RA-L 2025"
+      },
+      {
+        "src": "media/profile/anymal-field-monkeys.jpg",
+        "cols": 2,
+        "rows": 2,
+        "caption": "ANYmal on a field deployment, with curious company"
+      },
+      {
         "src": "media/thumbnails/solder_zoom.mp4",
         "poster": "media/thumbnails/solder_zoom_poster.jpg",
         "cols": 2,
         "rows": 2,
         "caption": "Robot soldering on a production line · Neuromeka 2026"
-      },
-      {
-        "src": "media/thumbnails/left_to_right.mp4",
-        "poster": "media/thumbnails/left_to_right_poster.jpg",
-        "cols": 2,
-        "rows": 2,
-        "caption": "Tool-aware collision avoidance for cobots · RA-L 2025"
       }
     ]
   },
