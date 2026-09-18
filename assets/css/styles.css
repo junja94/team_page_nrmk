@@ -519,17 +519,14 @@ h2 {
   object-fit: cover;
 }
 
-/* Portraits are shown in grayscale; colour returns on hover. */
-.person-photo img,
-.pi-card-photo img,
-.profile-photo img {
+/* Team-row portraits are shown in grayscale; colour returns on hover.
+   The PI card and the profile header photo stay in colour. */
+.person-photo img {
   filter: grayscale(1);
   transition: filter 0.25s ease;
 }
 
-.person-row:hover .person-photo img,
-.pi-card:hover .pi-card-photo img,
-.profile-photo:hover img {
+.person-row:hover .person-photo img {
   filter: none;
 }
 
