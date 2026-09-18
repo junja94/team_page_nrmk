@@ -594,6 +594,12 @@ h2 {
   object-fit: contain;
 }
 
+/* The KAIST file includes the swoosh below the letters; at this height its
+   letters match the POSTECH wordmark, which the width cap renders ~9px tall. */
+.partner-lab-mark[src*='kaist'] {
+  height: 16px;
+}
+
 .partner-lab-link {
   display: flex;
   flex-direction: column;
