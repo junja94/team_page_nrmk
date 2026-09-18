@@ -65,6 +65,8 @@ function renderHead(profile) {
 
 // ---- Research mosaic --------------------------------------------------------
 
+let profileData = {};
+
 function renderMosaic(mosaic = {}) {
   const host = document.getElementById('profileMosaic');
   if (!host) return;
@@ -82,11 +84,26 @@ function renderMosaic(mosaic = {}) {
     host.style.setProperty('--mosaic-row', `${Number(mosaic.rowHeight) || 150}px`);
   }
 
+  // A tile links to its paper: an explicit href, else the project link of the
+  // publication with the same title.
+  const linkFor = (tile) => tile.href
+    || ((profileData.publications || []).find((pub) => pub.title === tile.caption) || {}).link
+    || '';
+
   tiles.forEach((tile, i) => {
     const preset = spans[i % spans.length];
     const cols = layout === 'custom' ? Number(tile.cols) || 1 : preset[0];
     const rows = layout === 'custom' ? Number(tile.rows) || 1 : preset[1];
-    const cell = el('div', 'mosaic-tile');
+    const href = linkFor(tile);
+    const cell = el(href ? 'a' : 'div', 'mosaic-tile');
+    if (href) {
+      cell.href = href;
+      if (/^https?:/i.test(href)) {
+        cell.target = '_blank';
+        cell.rel = 'noopener noreferrer';
+      }
+      cell.setAttribute('aria-label', tile.caption || 'Paper');
+    }
     cell.style.gridColumn = `span ${cols}`;
     cell.style.gridRow = `span ${rows}`;
     cell.dataset.cols = String(cols);
@@ -203,6 +220,7 @@ function renderTalks(profile) {
 
 fetchJson(PROFILE_URL)
   .then((profile) => {
+    profileData = profile;
     renderHead(profile);
     renderMosaic(profile.mosaic);
     renderCareer(profile);

@@ -29,14 +29,16 @@
         "rows": 2,
         "position": "top",
         "caption": "Learning quadrupedal locomotion over challenging terrain",
-        "sub": "Science Robotics 2020 · cover"
+        "sub": "Science Robotics 2020 · cover",
+        "href": "https://leggedrobotics.github.io/rl-blindloco/"
       },
       {
         "src": "media/profile/anymal-field-monkeys.jpg",
         "cols": 2,
         "rows": 2,
         "caption": "Learning robust perceptive locomotion for quadrupedal robots in the wild",
-        "sub": "Science Robotics 2022"
+        "sub": "Science Robotics 2022",
+        "href": "https://leggedrobotics.github.io/rl-perceptiveloco/"
       },
       {
         "src": "media/profile/powder-dispensing.jpg",
@@ -58,7 +60,8 @@
         "cols": 1,
         "rows": 1,
         "caption": "Learning quadrupedal locomotion over challenging terrain",
-        "sub": "Science Robotics 2020"
+        "sub": "Science Robotics 2020",
+        "href": "https://leggedrobotics.github.io/rl-blindloco/"
       },
       {
         "src": "media/thumbnails/left_to_right.mp4",
@@ -66,7 +69,8 @@
         "cols": 1,
         "rows": 1,
         "caption": "Learning fast, tool-aware collision avoidance for collaborative robots",
-        "sub": "IEEE RA-L 2025"
+        "sub": "IEEE RA-L 2025",
+        "href": "https://arxiv.org/abs/2508.20457"
       },
       {
         "src": "media/thumbnails/solder_zoom.mp4",
@@ -74,7 +78,8 @@
         "cols": 1,
         "rows": 1,
         "caption": "Learning-augmented robotic automation for real-world manufacturing",
-        "sub": "arXiv 2026 · under review, Nature Communications"
+        "sub": "arXiv 2026 · under review, Nature Communications",
+        "href": "https://arxiv.org/abs/2604.22235"
       }
     ]
   },
@@ -114,7 +119,7 @@
       "authors": "Yunho Kim, Quan Nguyen, Taewhan Kim, Youngjin Heo, Joonho Lee",
       "venue": "arXiv:2604.22235 · under review at Nature Communications",
       "award": "",
-      "link": "https://arxiv.org/abs/2604.22235"
+      "link": ""
     },
     {
       "year": 2025,
@@ -122,7 +127,7 @@
       "authors": "Joonho Lee, Yunho Kim, Seokjoon Kim, Quan Nguyen, Youngjin Heo",
       "venue": "IEEE RA-L",
       "award": "",
-      "link": ""
+      "link": "https://arxiv.org/abs/2508.20457"
     },
     {
       "year": 2025,

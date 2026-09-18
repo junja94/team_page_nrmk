@@ -1,2 +1,2 @@
-# Next-Generation Industrial Robotics with AI
+# Next-Generation Industrial Robotics
 Kicker: Neuromeka AI Lab

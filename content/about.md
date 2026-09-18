@@ -1,4 +1,4 @@
-**Neuromeka AI Lab** is an industrial AI robotics R&D team bringing learning-based intelligence into real production environments.
+**Neuromeka AI Lab** is a robotics team bringing learning-based intelligence into real production environments.
 
 We believe the next generation of automation will move beyond rigid, pre-programmed workflows toward robots that perceive, learn, and safely work alongside humans in complex industrial settings.
 
