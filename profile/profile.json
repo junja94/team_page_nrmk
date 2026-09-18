@@ -259,6 +259,11 @@
   ],
   "talks": [
     {
+      "date": "2025.11.28",
+      "title": "Teaching Robots to Walk and Work",
+      "venue": "CSE/GSAI Seminar, POSTECH"
+    },
+    {
       "date": "2025.06.04",
       "title": "Training Robots to Move and Work",
       "venue": "IRIM Seminar, Georgia Institute of Technology"
