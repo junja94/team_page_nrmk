@@ -4,6 +4,7 @@ Meta: Seoul
 ## Joonho Lee | Principal Investigator
 Image: media/team_pic/joonho.jpeg
 Link: [Google Scholar](https://scholar.google.com/citations?user=6Htb7swAAAAJ&hl=en)
+Profile: profile.html
 - PhD. & MSc., ETH Zurich
 - BSc, POSTECH
 

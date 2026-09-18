@@ -1,0 +1,77 @@
+{
+  "name": "Joonho Lee",
+  "photo": "media/team_pic/joonho.jpeg",
+  "role": "Group Leader, Neuromeka AI Lab · Advisor, RIVR",
+  "bio": "Robotics researcher and systems integrator with field experience. PhD from the Robotic Systems Lab at ETH Zurich on learning-based locomotion and navigation for legged robots; now leading learning-based control and manipulation for industrial robots at Neuromeka.",
+  "links": [
+    { "label": "joonho.lee@neuromeka.com", "href": "mailto:joonho.lee@neuromeka.com" },
+    { "label": "Google Scholar", "href": "https://scholar.google.com/citations?user=6Htb7swAAAAJ&hl=en" },
+    { "label": "CV (PDF)", "href": "media/cv.pdf" }
+  ],
+  "scholarUrl": "https://scholar.google.com/citations?user=6Htb7swAAAAJ&hl=en",
+
+  "mosaic": {
+    "layout": "hero",
+    "rowHeight": 150,
+    "tiles": [
+      { "src": "", "caption": "Wheeled-legged navigation and locomotion · Science Robotics 2024" },
+      { "src": "", "caption": "Perceptive locomotion in the wild · Science Robotics 2022" },
+      { "src": "", "caption": "Locomotion over challenging terrain · Science Robotics 2020" },
+      { "src": "media/thumbnails/solder_zoom.mp4", "poster": "media/thumbnails/solder_zoom_poster.jpg", "caption": "Robot soldering on a production line · Neuromeka 2026" },
+      { "src": "", "caption": "Multi-robot cooperation · RA-L 2024" },
+      { "src": "media/thumbnails/left_to_right.mp4", "poster": "media/thumbnails/left_to_right_poster.jpg", "caption": "Tool-aware collision avoidance for cobots · RA-L 2025" }
+    ]
+  },
+
+  "experience": [
+    { "when": "2024 – now", "org": "Neuromeka AI Group", "role": "Group Leader" },
+    { "when": "2024 – now", "org": "RIVR", "role": "Advisor, RL-based control and navigation" }
+  ],
+  "education": [
+    { "when": "2018 – 2024", "org": "ETH Zurich, Robotic Systems Lab", "degree": "PhD, Mechanical Engineering" },
+    { "when": "2017 – 2018", "org": "ETH Zurich", "degree": "MSc Robotics, Systems and Control · Rank 1/76" },
+    { "when": "2012 – 2016", "org": "POSTECH", "degree": "BSc Mechanical Engineering · Magna Cum Laude, Rank 2/17" }
+  ],
+
+  "publications": [
+    { "year": 2025, "title": "Learning fast, tool-aware collision avoidance for collaborative robots", "authors": "Joonho Lee, Yunho Kim, Seokjoon Kim, Quan Nguyen, Youngjin Heo", "venue": "IEEE RA-L", "award": "", "link": "" },
+    { "year": 2025, "title": "Learning-based legged locomotion: State of the art and future perspectives", "authors": "Sehoon Ha, Joonho Lee, Michiel van de Panne, Zhaoming Xie, Wenhao Yu, Majid Khadiv", "venue": "IJRR 44(8)", "award": "", "link": "" },
+    { "year": 2024, "title": "Learning to walk in confined spaces using 3D representation", "authors": "Takahiro Miki, Joonho Lee, Lorenz Wellhausen, Marco Hutter", "venue": "ICRA", "award": "Best Paper Award in Service Robotics", "link": "" },
+    { "year": 2024, "title": "Scalable multi-robot cooperation for multi-goal tasks using reinforcement learning", "authors": "Joonho Lee*, Tianxu An*, Marko Bjelonic, Flavio De Vincenti, Marco Hutter", "venue": "IEEE RA-L", "award": "", "link": "" },
+    { "year": 2024, "title": "Exploring constrained reinforcement learning algorithms for quadrupedal locomotion", "authors": "Joonho Lee*, Lukas Schroth*, Victor Klemm, Marko Bjelonic, Alexander Reske, Marco Hutter", "venue": "IROS", "award": "", "link": "" },
+    { "year": 2024, "title": "Learning robust autonomous navigation and locomotion for wheeled-legged robots", "authors": "Joonho Lee, Marko Bjelonic, Alexander Reske, Lorenz Wellhausen, Takahiro Miki, Marco Hutter", "venue": "Science Robotics 9(89)", "award": "", "link": "" },
+    { "year": 2022, "title": "Meta reinforcement learning for optimal design of legged robots", "authors": "Joonho Lee*, Alvaro Belmonte-Baeza*, Giorgio Valsecchi, Marco Hutter", "venue": "IEEE RA-L", "award": "", "link": "" },
+    { "year": 2022, "title": "Learning robust perceptive locomotion for quadrupedal robots in the wild", "authors": "Takahiro Miki, Joonho Lee, Jemin Hwangbo, Lorenz Wellhausen, Vladlen Koltun, Marco Hutter", "venue": "Science Robotics 7(62)", "award": "", "link": "https://leggedrobotics.github.io/rl-perceptiveloco/" },
+    { "year": 2020, "title": "Learning quadrupedal locomotion over challenging terrain", "authors": "Joonho Lee, Jemin Hwangbo, Lorenz Wellhausen, Vladlen Koltun, Marco Hutter", "venue": "Science Robotics 5(47)", "award": "IEEE RAS TC-MBOR Best Paper Award", "link": "https://leggedrobotics.github.io/rl-blindloco/" },
+    { "year": 2020, "title": "DeepGait: Planning and control of quadrupedal gaits using deep reinforcement learning", "authors": "Vassilios Tsounis, Mitja Alge, Joonho Lee, Farbod Farshidian, Marco Hutter", "venue": "IEEE RA-L 5(2)", "award": "", "link": "" },
+    { "year": 2019, "title": "Robust recovery controller for a quadrupedal robot using deep reinforcement learning", "authors": "Joonho Lee, Jemin Hwangbo, Marco Hutter", "venue": "arXiv:1901.07517", "award": "", "link": "" },
+    { "year": 2019, "title": "Learning agile and dynamic motor skills for legged robots", "authors": "Jemin Hwangbo, Joonho Lee, Alexey Dosovitskiy, Dario Bellicoso, Vassilios Tsounis, Vladlen Koltun, Marco Hutter", "venue": "Science Robotics 4(26)", "award": "", "link": "" }
+  ],
+
+  "awards": [
+    { "year": "2025", "title": "ETH Zurich Medal for outstanding doctoral thesis", "by": "ETH Zurich" },
+    { "year": "2024", "title": "Best Paper Award in Service Robotics", "by": "IEEE ICRA" },
+    { "year": "2020", "title": "Best Paper Award, TC on Model-Based Optimization for Robotics", "by": "IEEE Robotics & Automation Society" },
+    { "year": "2019", "title": "ETH Zurich Medal for outstanding master’s thesis", "by": "ETH Zurich" },
+    { "year": "2019", "title": "Willi Studer Prize (Best Graduate), Robotics, Systems and Control", "by": "D-MAVT, ETH Zurich" },
+    { "year": "2012–15", "title": "Korean National Scholarship for Science and Engineering", "by": "" }
+  ],
+
+  "students": [
+    { "name": "Seokjoon Kim", "note": "Research intern, Neuromeka · now PhD, Georgia Tech" },
+    { "name": "Tianxu An", "note": "MSc thesis, ETH RSL" },
+    { "name": "Filip Bjelonic", "note": "MSc thesis, ETH RSL" },
+    { "name": "Lukas Schroth", "note": "MSc thesis, ETH RSL" },
+    { "name": "Anqiao Li", "note": "MSc thesis, ETH" },
+    { "name": "Álvaro Belmonte-Baeza", "note": "MSc thesis, ETH RSL" },
+    { "name": "Yifan Liu", "note": "RIVR" }
+  ],
+
+  "talks": [
+    { "date": "2019.02.11", "title": "시뮬레이션에서의 심층강화학습을 이용한 보행로봇 제어", "venue": "Agency for Defense Development (ADD), Korea" },
+    { "date": "2019.02.13", "title": "시뮬레이션에서의 심층강화학습을 이용한 보행로봇 제어", "venue": "Korea Institute of Industrial Technology (KITECH)" },
+    { "date": "2020.08.05", "title": "Learning legged locomotion – walking through a forest", "venue": "Intel Labs" },
+    { "date": "2020.11.10", "title": "Learning quadrupedal locomotion over challenging terrain", "venue": "CSIRO" },
+    { "date": "2021.02.12", "title": "인공지능기술을 활용한 4족보행로봇 제어", "venue": "—" }
+  ]
+}

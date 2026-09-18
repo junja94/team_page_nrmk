@@ -1,13 +1,11 @@
 // layout.js — injects the shared header/footer partials and marks the current nav link.
 
-// Pages that are not in the nav point at the nav entry they belong under.
-const NAV_ALIASES = { 'post.html': 'index.html#research' };
-
 function markCurrentNav(container) {
   const file = window.location.pathname.split('/').pop() || 'index.html';
-  const current = NAV_ALIASES[file] || file;
   container.querySelectorAll('nav a').forEach((link) => {
-    if (link.getAttribute('href') === current) link.setAttribute('aria-current', 'page');
+    // Only a link whose href is exactly this page counts; in-page anchors
+    // such as index.html#team never mark Home as current.
+    if (link.getAttribute('href') === file) link.setAttribute('aria-current', 'page');
   });
 }
 

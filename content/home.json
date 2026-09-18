@@ -3,7 +3,16 @@
     { "src": "media/hero/eir_gemini.jpg", "alt": "Neuromeka EIR humanoid robot at a workbench" },
     { "src": "media/hero/solder_line.jpg", "alt": "Robot performing precision soldering on a production line" }
   ],
+  "heroIntervalMs": 6000,
   "heroCopyUrl": "content/hero.md",
   "aboutUrl": "content/about.md",
+  "piCard": {
+    "href": "profile.html",
+    "photo": "media/team_pic/joonho.jpeg",
+    "kicker": "Principal Investigator",
+    "name": "Joonho Lee",
+    "summary": "PhD, ETH Zurich Robotic Systems Lab · Science Robotics, RA-L, ICRA Best Paper · ETH Medal 2025",
+    "cta": "Profile →"
+  },
   "fallbackThumbnail": "media/hero/eir_gemini.jpg"
 }

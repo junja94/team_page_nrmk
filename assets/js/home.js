@@ -1,62 +1,20 @@
-// home.js — home page: hero, about section, and the full research list.
+// home.js — home page: hero slider + about copy, PI card, and the research list.
+// The team blocks further down the page are rendered by team.js.
 
 const DEFAULT_HERO_COPY_URL = 'content/hero.md';
 const DEFAULT_HERO_IMAGE = 'media/hero/eir_gemini.jpg';
-const HERO_AUTOPLAY_MS = 5000;
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const DEFAULT_HERO_INTERVAL_MS = 6000;
 
-// ---- Hero image(s) -----------------------------------------------------------
+// ---- Hero copy and about text ----------------------------------------------
 
-/** Accepts the current {heroImages: [{src, alt}]} shape, or a single legacy heroImage/heroImageAlt pair. */
-function resolveHeroImages(config) {
-  if (Array.isArray(config.heroImages) && config.heroImages.length) {
-    return config.heroImages.filter((item) => item && item.src);
-  }
-  return [{ src: config.heroImage || DEFAULT_HERO_IMAGE, alt: config.heroImageAlt || '' }];
-}
-
-function renderHeroImages(images) {
-  const figure = document.getElementById('heroFigure');
-  if (!figure) return;
-  figure.innerHTML = '';
-  const slides = images.map((item, i) => {
-    const img = el('img', 'hero-slide');
-    img.src = item.src;
-    img.alt = item.alt || '';
-    if (i === 0) img.classList.add('active');
-    figure.appendChild(img);
-    return img;
-  });
-
-  // A single image needs no rotation; more than one crossfades automatically
-  // unless the viewer has asked for reduced motion.
-  if (slides.length <= 1 || prefersReducedMotion) return;
-  let index = 0;
-  setInterval(() => {
-    slides[index].classList.remove('active');
-    index = (index + 1) % slides.length;
-    slides[index].classList.add('active');
-  }, HERO_AUTOPLAY_MS);
-}
-
-// ---- Hero copy and about -----------------------------------------------------
-
-function renderHero(config) {
-  renderHeroImages(resolveHeroImages(config));
-
-  const url = typeof config.heroCopyUrl === 'string' && config.heroCopyUrl.trim()
-    ? config.heroCopyUrl.trim()
-    : DEFAULT_HERO_COPY_URL;
-
+function renderHeroCopy(url) {
   return fetchText(url)
     .then((markdown) => {
-      const { meta, body } = parseFrontMatter(markdown);
+      const { meta } = parseFrontMatter(markdown);
       const kicker = document.getElementById('heroKicker');
       const title = document.getElementById('heroTitle');
-      const lead = document.getElementById('heroLead');
       if (kicker) kicker.textContent = meta.kicker || '';
       if (title) title.textContent = meta.title || '';
-      if (lead) lead.innerHTML = marked.parse(body);
     })
     .catch(() => {});
 }
@@ -67,6 +25,86 @@ function renderAbout(url) {
   return fetchText(url)
     .then((markdown) => { target.innerHTML = marked.parse(markdown); })
     .catch(() => {});
+}
+
+// ---- Hero image slider ------------------------------------------------------
+
+/** Accepts {heroImages: [{src, alt}]} or the older single heroImage / heroImageAlt pair. */
+function resolveHeroImages(config) {
+  if (Array.isArray(config.heroImages) && config.heroImages.length) {
+    return config.heroImages.filter((item) => item && item.src);
+  }
+  return [{ src: config.heroImage || DEFAULT_HERO_IMAGE, alt: config.heroImageAlt || '' }];
+}
+
+function renderHeroSlider(images, intervalMs) {
+  const figure = document.getElementById('heroFigure');
+  const track = document.getElementById('heroTrack');
+  const dotsHost = document.getElementById('heroDots');
+  if (!figure || !track || !dotsHost) return;
+
+  track.innerHTML = '';
+  dotsHost.innerHTML = '';
+  images.forEach((item) => {
+    const img = document.createElement('img');
+    img.src = item.src;
+    img.alt = item.alt || '';
+    track.appendChild(img);
+  });
+
+  if (images.length <= 1) {
+    dotsHost.hidden = true;
+    return;
+  }
+
+  let index = 0;
+  let paused = false;
+  const dots = images.map((_, i) => {
+    const dot = el('button');
+    dot.type = 'button';
+    dot.setAttribute('aria-label', `Go to image ${i + 1}`);
+    dot.addEventListener('click', () => show(i));
+    dotsHost.appendChild(dot);
+    return dot;
+  });
+
+  function show(i) {
+    index = (i + images.length) % images.length;
+    track.style.transform = `translateX(${-index * 100}%)`;
+    dots.forEach((dot, j) => dot.setAttribute('aria-current', String(j === index)));
+  }
+
+  show(0);
+  figure.addEventListener('mouseenter', () => { paused = true; });
+  figure.addEventListener('mouseleave', () => { paused = false; });
+  setInterval(() => { if (!paused) show(index + 1); }, intervalMs);
+}
+
+// ---- PI card ----------------------------------------------------------------
+
+function renderPiCard(card) {
+  const host = document.getElementById('piCard');
+  if (!host || !card || !card.name) return;
+  host.innerHTML = '';
+  host.href = card.href || 'profile.html';
+
+  const photo = el('div', 'pi-card-photo');
+  if (card.photo) {
+    const img = document.createElement('img');
+    img.src = card.photo;
+    img.alt = card.name;
+    photo.appendChild(img);
+  }
+  host.appendChild(photo);
+
+  const body = el('div', 'pi-card-body');
+  if (card.kicker) body.appendChild(el('div', 'pi-card-kicker', card.kicker));
+  body.appendChild(el('div', 'pi-card-name', card.name));
+  if (card.summary) body.appendChild(el('div', 'pi-card-summary', card.summary));
+  host.appendChild(body);
+
+  host.appendChild(el('div', 'pi-card-cta', card.cta || 'Profile →'));
+  host.hidden = false;
 }
 
 // ---- Research list ----------------------------------------------------------
@@ -98,6 +136,7 @@ function renderPosts(posts) {
   if (!postList) return;
   postList.innerHTML = '';
   posts.forEach((post) => postList.appendChild(buildPostRow(post)));
+  observeVideos(postList);
   if (postCount) {
     postCount.textContent = `${posts.length} post${posts.length === 1 ? '' : 's'} · newest first`;
   }
@@ -107,8 +146,13 @@ function renderPosts(posts) {
 
 loadHomeConfig()
   .then((config) => {
-    renderHero(config);
+    const heroCopyUrl = typeof config.heroCopyUrl === 'string' && config.heroCopyUrl.trim()
+      ? config.heroCopyUrl.trim()
+      : DEFAULT_HERO_COPY_URL;
+    renderHeroCopy(heroCopyUrl);
     renderAbout(typeof config.aboutUrl === 'string' ? config.aboutUrl.trim() : '');
+    renderHeroSlider(resolveHeroImages(config), Number(config.heroIntervalMs) || DEFAULT_HERO_INTERVAL_MS);
+    renderPiCard(config.piCard);
     return loadPosts(config.fallbackThumbnail || '');
   })
   .then(renderPosts)

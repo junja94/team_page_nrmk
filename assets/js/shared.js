@@ -96,8 +96,8 @@ function buildPostData(meta = {}, link = '', fallbackThumbnail = '') {
     publication: meta.publication || '',
     publicationLink: meta.publicationlink || '',
     doi: meta.doi || '',
-    // Listings show still images, so a video thumbnail falls back to its poster.
-    thumbnail: (isVideoSource(image) ? poster || '' : image) || poster || fallbackThumbnail,
+    thumbnail: image || poster || fallbackThumbnail,
+    thumbnailPoster: poster,
     link,
   };
 }
@@ -131,14 +131,55 @@ function el(tag, className, text) {
   return node;
 }
 
-/** A thumbnail image, or nothing when the post has no usable image. */
+/**
+ * A still image, or a silent looping inline video (with poster) when the
+ * source is a video file. Returns null when there is no source at all.
+ */
+function createMediaElement({ src, poster = '', alt = '' }) {
+  if (!src) return null;
+  if (!isVideoSource(src)) {
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = alt;
+    img.loading = 'lazy';
+    return img;
+  }
+  const video = document.createElement('video');
+  // Property and attribute both set: mobile browsers only autoplay when the
+  // attributes are present in the DOM.
+  video.muted = true;
+  video.setAttribute('muted', '');
+  video.loop = true;
+  video.setAttribute('loop', '');
+  video.autoplay = true;
+  video.setAttribute('autoplay', '');
+  video.playsInline = true;
+  video.setAttribute('playsinline', '');
+  video.preload = 'metadata';
+  if (poster) video.poster = poster;
+  if (alt) video.setAttribute('aria-label', alt);
+  video.src = src;
+  return video;
+}
+
+/** The post's thumbnail: its video (with poster) when it has one, else the still. */
 function createThumbnail(post) {
-  if (!post.thumbnail) return null;
-  const img = document.createElement('img');
-  img.src = post.thumbnail;
-  img.alt = '';
-  img.loading = 'lazy';
-  return img;
+  return createMediaElement({ src: post.thumbnail, poster: post.thumbnailPoster });
+}
+
+// Play list videos only while they are on screen.
+const mediaVisibilityObserver = 'IntersectionObserver' in window
+  ? new IntersectionObserver((entries) => {
+    entries.forEach(({ target, isIntersecting }) => {
+      if (isIntersecting) target.play().catch(() => {});
+      else target.pause();
+    });
+  }, { threshold: 0.1 })
+  : null;
+
+function observeVideos(root) {
+  if (!mediaVisibilityObserver || !root) return;
+  root.querySelectorAll('video').forEach((video) => mediaVisibilityObserver.observe(video));
 }
 
 /** Uppercase meta line: date in accent, authors muted. */

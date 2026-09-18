@@ -1,4 +1,5 @@
-// team.js — Team page: team/team.md for the people, team/hiring.md for the openings.
+// team.js — the Team blocks on the home page: team/team.md for the people,
+// team/hiring.md for the openings. Rendered into #teamContent.
 //
 // Markdown schema
 //   # Group name            a section; the first one becomes the page heading
@@ -6,7 +7,8 @@
 //     Contact: text         optional, the line beside an "Open positions" heading
 //   ## Name | Role          a person row, or an opening in the positions section
 //     Image: path           person photo
-//     Link: [Label](url)    optional profile link, shown after the credentials
+//     Link: [Label](url)    optional external link, shown after the credentials
+//     Profile: profile.html optional in-site profile page, shown as "Profile →"
 //     Location: Seoul       opening location badge
 //     - bullet              credentials; for an opening, the first bullet is the
 //                           requirement and the rest are joined with " · "
@@ -66,10 +68,9 @@ function parseTeamMarkdown(markdown) {
   return groups;
 }
 
-function buildSectionHead(title, headingTag, metaText) {
+function buildSectionHead(title, metaText) {
   const head = el('div', 'section-head');
-  const heading = el(headingTag, headingTag === 'h1' ? 'page-title' : '', title);
-  head.appendChild(heading);
+  head.appendChild(el('h2', '', title));
   if (metaText) head.appendChild(el('span', 'section-meta', metaText));
   return head;
 }
@@ -102,6 +103,11 @@ function buildPersonRow(person) {
     const span = el('span');
     appendInlineMarkdown(span, person.meta.link);
     credentials.appendChild(span);
+  }
+  if (person.meta.profile) {
+    const link = el('a', '', 'Profile →');
+    link.href = person.meta.profile;
+    credentials.appendChild(link);
   }
   row.appendChild(credentials);
   return row;
@@ -150,9 +156,9 @@ function buildPartnerLabs(list) {
   return block;
 }
 
-function buildPeopleSection(group, headingTag, metaText) {
-  const section = el('section', 'section-rows');
-  section.appendChild(buildSectionHead(group.name, headingTag, metaText));
+function buildPeopleSection(group, metaText) {
+  const section = el('div', 'section-rows');
+  section.appendChild(buildSectionHead(group.name, metaText));
   group.entries.forEach((person) => section.appendChild(buildPersonRow(person)));
   group.lists
     .filter((list) => list.title.toLowerCase() === PARTNER_LABS_LABEL)
@@ -182,7 +188,7 @@ function buildPositionRow(opening) {
 }
 
 function buildPositionsSection(group) {
-  const section = el('section', 'positions');
+  const section = el('div', 'positions');
 
   const head = el('div', 'positions-head');
   head.appendChild(el('h2', '', group.name));
@@ -213,7 +219,7 @@ function renderTeamPage(groups) {
     const metaText = isFirst && group.meta.meta
       ? `${headcount} members · ${group.meta.meta}`
       : '';
-    teamContent.appendChild(buildPeopleSection(group, isFirst ? 'h1' : 'h2', metaText));
+    teamContent.appendChild(buildPeopleSection(group, metaText));
   });
 }
 
