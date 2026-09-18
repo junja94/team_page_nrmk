@@ -168,10 +168,10 @@ function renderHonors(profile) {
     (profile.awards || []).map((h) => dateRow(String(h.year), h.title, h.by, 'date-48'))));
 
   const students = el('div', 'section-rows');
-  students.appendChild(headWithMeta('Former students & colleagues'));
+  students.appendChild(headWithMeta('Former students & mentees'));
   (profile.students || []).forEach((s) => {
     const row = el('div', 'student-row');
-    row.appendChild(el('div', 'student-name', s.name));
+    row.appendChild(s.link ? externalLink(s.name, s.link, 'student-name') : el('div', 'student-name', s.name));
     if (s.note) row.appendChild(el('div', 'student-note', s.note));
     students.appendChild(row);
   });

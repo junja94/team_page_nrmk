@@ -1002,6 +1002,10 @@ a.funding-title:hover {
   font-weight: 500;
 }
 
+a.student-name {
+  color: var(--color-accent);
+}
+
 .student-note {
   color: var(--color-muted);
   text-align: right;

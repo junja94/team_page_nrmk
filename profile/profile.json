@@ -247,7 +247,8 @@
   "students": [
     {
       "name": "Seokjoon Kim",
-      "note": "Teammate, Neuromeka · now PhD, Georgia Tech"
+      "note": "Teammate, Neuromeka · now PhD, Georgia Tech",
+      "link": "https://scholar.google.com/citations?view_op=list_works&hl=en&user=BqfHsCcAAAAJ&sortby=pubdate"
     },
     {
       "name": "Yifan Liu",
@@ -255,23 +256,28 @@
     },
     {
       "name": "Tianxu An",
-      "note": "MSc thesis, ETH"
+      "note": "MSc thesis, ETH",
+      "link": "https://ieeexplore.ieee.org/abstract/document/10811859"
     },
     {
       "name": "Filip Bjelonic",
-      "note": "MSc thesis, ETH"
+      "note": "MSc thesis, ETH",
+      "link": "https://scholar.google.com/citations?user=DzqjM4wAAAAJ&hl=en"
     },
     {
       "name": "Lukas Schroth",
-      "note": "MSc thesis, ETH"
+      "note": "MSc thesis, ETH",
+      "link": "https://scholar.google.com/citations?user=SgvpBcsAAAAJ&hl=de"
     },
     {
       "name": "Anqiao Li",
-      "note": "MSc thesis, ETH"
+      "note": "MSc thesis, ETH",
+      "link": "https://scholar.google.com/citations?user=aXF9uKAAAAAJ&hl=en"
     },
     {
       "name": "Álvaro Belmonte-Baeza",
-      "note": "MSc thesis, ETH"
+      "note": "MSc thesis, ETH",
+      "link": "https://scholar.google.com/citations?user=QeHd2W4AAAAJ&hl=es"
     }
   ],
   "talks": [
