@@ -79,7 +79,7 @@ def build_html(p):
 @page { size: A4; margin: 16mm 16mm 18mm; }
 html { font-family: 'Barlow', system-ui, sans-serif; font-size: 9.6pt; line-height: 1.4; color: #1d1f20; }
 body { margin: 0; }
-a { color: #416180; text-decoration: none; }
+a { color: #0072ce; text-decoration: none; }
 header { border-bottom: 1px solid #ccc; padding-bottom: 6pt; margin-bottom: 8pt; }
 h1 { font-family: 'Barlow Condensed', 'Barlow', system-ui, sans-serif; font-weight: 600; font-size: 22pt; margin: 0; line-height: 1.05; }
 .role { color: #666; margin-top: 2pt; }
@@ -94,7 +94,7 @@ h2 span { font-size: 8pt; font-weight: 400; color: #777; letter-spacing: 0.06em;
 .when { color: #777; font-variant-numeric: tabular-nums; }
 .p { font-weight: 500; }
 .s { color: #555; }
-.venue { color: #416180; }
+.venue { color: #0072ce; }
 footer { margin-top: 10pt; font-size: 8pt; color: #999; }
 '''
     fonts = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700&family=Barlow+Condensed:wght@600&display=swap">'

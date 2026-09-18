@@ -223,6 +223,20 @@ function renderStudents(profile) {
 
 // ---- Publications -----------------------------------------------------------
 
+/** Author list with the profile owner's name set in <strong>. */
+function buildAuthors(authors, ownName) {
+  const node = el('div', 'pub-authors');
+  if (!ownName || !authors.includes(ownName)) {
+    node.textContent = authors;
+    return node;
+  }
+  authors.split(ownName).forEach((part, index) => {
+    if (index) node.appendChild(el('strong', '', ownName));
+    if (part) node.append(part);
+  });
+  return node;
+}
+
 function renderPublications(profile) {
   const host = document.getElementById('profilePubs');
   if (!host) return;
@@ -237,7 +251,7 @@ function renderPublications(profile) {
     row.appendChild(el('div', 'pub-year', String(pub.year)));
     const body = el('div', 'pub-body');
     body.appendChild(el('div', 'pub-title', pub.title));
-    if (pub.authors) body.appendChild(el('div', 'pub-authors', pub.authors));
+    if (pub.authors) body.appendChild(buildAuthors(pub.authors, profile.name));
     const meta = el('div', 'pub-meta');
     if (pub.venue) meta.appendChild(el('span', 'pub-venue', pub.venue));
     if (pub.award) meta.appendChild(el('span', 'badge', pub.award));

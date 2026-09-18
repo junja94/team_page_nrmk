@@ -66,7 +66,7 @@
         "cols": 2,
         "rows": 2,
         "caption": "When monkeys meet an ANYmal robot in the wild",
-        "sub": "BioRxiv 2024",
+        "sub": "bioRxiv 2024",
         "href": "https://www.biorxiv.org/content/10.1101/2024.08.13.607714v1"
       },
       {
@@ -135,7 +135,8 @@
       "authors": "Yunho Kim, Quan Nguyen, Taewhan Kim, Youngjin Heo, Joonho Lee",
       "venue": "arXiv:2604.22235 · under review at Nature Communications",
       "award": "",
-      "link": ""
+      "link": "",
+      "hidden": false
     },
     {
       "year": 2025,
@@ -143,7 +144,8 @@
       "authors": "Joonho Lee, Yunho Kim, Seokjoon Kim, Quan Nguyen, Youngjin Heo",
       "venue": "IEEE RA-L",
       "award": "",
-      "link": "https://arxiv.org/abs/2508.20457"
+      "link": "https://arxiv.org/abs/2508.20457",
+      "hidden": false
     },
     {
       "year": 2025,
@@ -151,7 +153,8 @@
       "authors": "Sehoon Ha, Joonho Lee, Michiel van de Panne, Zhaoming Xie, Wenhao Yu, Majid Khadiv",
       "venue": "IJRR 44(8)",
       "award": "",
-      "link": ""
+      "link": "",
+      "hidden": false
     },
     {
       "year": 2024,
@@ -159,7 +162,8 @@
       "authors": "Takahiro Miki, Joonho Lee, Lorenz Wellhausen, Marco Hutter",
       "venue": "ICRA",
       "award": "Best Paper Award in Service Robotics",
-      "link": ""
+      "link": "",
+      "hidden": false
     },
     {
       "year": 2024,
@@ -167,7 +171,8 @@
       "authors": "Joonho Lee*, Tianxu An*, Marko Bjelonic, Flavio De Vincenti, Marco Hutter",
       "venue": "IEEE RA-L",
       "award": "",
-      "link": ""
+      "link": "",
+      "hidden": false
     },
     {
       "year": 2024,
@@ -175,7 +180,8 @@
       "authors": "Joonho Lee*, Lukas Schroth*, Victor Klemm, Marko Bjelonic, Alexander Reske, Marco Hutter",
       "venue": "IROS",
       "award": "",
-      "link": ""
+      "link": "",
+      "hidden": true
     },
     {
       "year": 2024,
@@ -183,7 +189,8 @@
       "authors": "Joonho Lee, Marko Bjelonic, Alexander Reske, Lorenz Wellhausen, Takahiro Miki, Marco Hutter",
       "venue": "Science Robotics 9(89)",
       "award": "",
-      "link": ""
+      "link": "",
+      "hidden": false
     },
     {
       "year": 2024,
@@ -191,7 +198,8 @@
       "authors": "Charlotte Canteloup, Joonho Lee, Samuel Zimmermann, Morgane Alvino, Markus Montenegro, Marco Hutter, Erica van de Waal",
       "venue": "bioRxiv 2024.08.13.607714",
       "award": "",
-      "link": "https://www.biorxiv.org/content/10.1101/2024.08.13.607714v1"
+      "link": "https://www.biorxiv.org/content/10.1101/2024.08.13.607714v1",
+      "hidden": false
     },
     {
       "year": 2022,
@@ -199,7 +207,8 @@
       "authors": "Takahiro Miki, Joonho Lee, Jemin Hwangbo, Lorenz Wellhausen, Vladlen Koltun, Marco Hutter",
       "venue": "Science Robotics 7(62)",
       "award": "",
-      "link": "https://leggedrobotics.github.io/rl-perceptiveloco/"
+      "link": "https://leggedrobotics.github.io/rl-perceptiveloco/",
+      "hidden": false
     },
     {
       "year": 2020,
@@ -207,7 +216,8 @@
       "authors": "Joonho Lee, Jemin Hwangbo, Lorenz Wellhausen, Vladlen Koltun, Marco Hutter",
       "venue": "Science Robotics 5(47)",
       "award": "IEEE RAS TC-MBOR Best Paper Award",
-      "link": "https://leggedrobotics.github.io/rl-blindloco/"
+      "link": "https://leggedrobotics.github.io/rl-blindloco/",
+      "hidden": false
     },
     {
       "year": 2019,
@@ -215,7 +225,8 @@
       "authors": "Jemin Hwangbo, Joonho Lee, Alexey Dosovitskiy, Dario Bellicoso, Vassilios Tsounis, Vladlen Koltun, Marco Hutter",
       "venue": "Science Robotics 4(26)",
       "award": "",
-      "link": ""
+      "link": "",
+      "hidden": true
     }
   ],
   "awards": [
@@ -294,6 +305,18 @@
       "title": "Training Robots to Move and Work",
       "venue": "IRIM Seminar, Georgia Institute of Technology",
       "country": "US"
+    },
+    {
+      "date": "2025.02.10",
+      "title": "Elevating Robotic Performance through Learned Autonomy",
+      "venue": "ME Seminar, SNU",
+      "country": "KR"
+    },
+    {
+      "date": "2024.10.15",
+      "title": "Advancing the Autonomy of Legged Robots",
+      "venue": "KAIST AI",
+      "country": "KR"
     },
     {
       "date": "2024.01.02",

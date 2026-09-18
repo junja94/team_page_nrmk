@@ -5,6 +5,7 @@
 //   # Group name            a section; the first one becomes the page heading
 //     Meta: Seoul           optional, shown at the right of the first section's heading
 //     Contact: text         optional, the line beside an "Open positions" heading
+//     Hidden: true          optional, the whole section stays in the file but is not rendered
 //   ## Name | Role          a person row, or an opening in the positions section
 //     Image: path           person photo
 //     Link: [Label](url)    optional external link, shown after the credentials
@@ -205,8 +206,9 @@ function buildPositionsSection(group) {
   return section;
 }
 
-function renderTeamPage(groups) {
+function renderTeamPage(allGroups) {
   teamContent.innerHTML = '';
+  const groups = allGroups.filter((group) => (group.meta.hidden || '').toLowerCase() !== 'true');
   const peopleGroups = groups.filter((group) => group.name.toLowerCase() !== POSITIONS_GROUP);
   const headcount = peopleGroups.reduce((total, group) => total + group.entries.length, 0);
 

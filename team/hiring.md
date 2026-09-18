@@ -1,4 +1,5 @@
 # Open positions
+Hidden: true
 Contact: We are looking for creative and motivated team players! Send your CV to [joonho.lee@neuromeka.com](mailto:joonho.lee@neuromeka.com)
 
 ## Senior in Robotics & AI
