@@ -519,12 +519,11 @@ h2 {
   object-fit: cover;
 }
 
-/* Portraits are shown in a blue duotone; colour returns on hover.
-   For plain grayscale, replace the filter with grayscale(1). */
+/* Portraits are shown in grayscale; colour returns on hover. */
 .person-photo img,
 .pi-card-photo img,
 .profile-photo img {
-  filter: grayscale(1) sepia(1) hue-rotate(178deg) saturate(2.2) brightness(0.92);
+  filter: grayscale(1);
   transition: filter 0.25s ease;
 }
 
