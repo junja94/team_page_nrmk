@@ -258,79 +258,9 @@
   ],
   "talks": [
     {
-      "date": "2019.02.11",
-      "title": "시뮬레이션에서의 심층강화학습을 이용한 보행로봇 제어",
-      "venue": "Agency for Defense Development (ADD), Korea"
-    },
-    {
-      "date": "2019.02.13",
-      "title": "시뮬레이션에서의 심층강화학습을 이용한 보행로봇 제어",
-      "venue": "Korea Institute of Industrial Technology (KITECH)"
-    },
-    {
-      "date": "2020.08.05",
-      "title": "Learning legged locomotion – walking through a forest",
-      "venue": "Intel Labs"
-    },
-    {
-      "date": "2020.11.10",
-      "title": "Learning quadrupedal locomotion over challenging terrain",
-      "venue": "CSIRO"
-    },
-    {
-      "date": "2021.02.12",
-      "title": "인공지능기술을 활용한 4족보행로봇 제어",
-      "venue": "AI Winter School, Korean Society of Mechanical Engineers (KSME)"
-    },
-    {
-      "date": "2021.02.26",
-      "title": "Learning quadrupedal locomotion over challenging terrain",
-      "venue": "PAIR, University of Toronto"
-    },
-    {
-      "date": "2021.05.21",
-      "title": "Learning quadrupedal locomotion over challenging terrain",
-      "venue": "NCCR Robotics Seminar"
-    },
-    {
-      "date": "2021.07.02",
-      "title": "Learning quadrupedal locomotion over challenging terrain",
-      "venue": "Telluride Neuromorphic Cognition Engineering Workshop"
-    },
-    {
-      "date": "2021.07.12",
-      "title": "Learning quadrupedal locomotion over challenging terrain",
-      "venue": "CRL, ETH Zurich"
-    },
-    {
-      "date": "2022.01.12",
-      "title": "Learning quadrupedal locomotion over challenging terrain",
-      "venue": "RILAB, Korea University"
-    },
-    {
-      "date": "2022.04.25",
-      "title": "RL for quadrupedal locomotion",
-      "venue": "DLR"
-    },
-    {
-      "date": "2022.11.03",
-      "title": "Developing legged robots for outdoor use",
-      "venue": "Agency for Defense Development (ADD), Korea"
-    },
-    {
-      "date": "2022.11.08",
-      "title": "Toward the real-world applications of autonomous walking robots",
-      "venue": "POSTECH"
-    },
-    {
-      "date": "2022.11.10",
-      "title": "Robust quadrupedal locomotion via RL",
-      "venue": "Krafton"
-    },
-    {
-      "date": "2023.08.02",
-      "title": "Navigating real-world with legged robots",
-      "venue": "Georgia Institute of Technology"
+      "date": "2024.01.02",
+      "title": "Learning locomotion and autonomous navigation for legged robots",
+      "venue": "SUSTech"
     },
     {
       "date": "2023.12.29",
@@ -338,9 +268,79 @@
       "venue": "Zhejiang University"
     },
     {
-      "date": "2024.01.02",
-      "title": "Learning locomotion and autonomous navigation for legged robots",
-      "venue": "SUSTech"
+      "date": "2023.08.02",
+      "title": "Navigating real-world with legged robots",
+      "venue": "Georgia Institute of Technology"
+    },
+    {
+      "date": "2022.11.10",
+      "title": "Robust quadrupedal locomotion via RL",
+      "venue": "Krafton"
+    },
+    {
+      "date": "2022.11.08",
+      "title": "Toward the real-world applications of autonomous walking robots",
+      "venue": "POSTECH"
+    },
+    {
+      "date": "2022.11.03",
+      "title": "Developing legged robots for outdoor use",
+      "venue": "Agency for Defense Development (ADD), Korea"
+    },
+    {
+      "date": "2022.04.25",
+      "title": "RL for quadrupedal locomotion",
+      "venue": "DLR"
+    },
+    {
+      "date": "2022.01.12",
+      "title": "Learning quadrupedal locomotion over challenging terrain",
+      "venue": "RILAB, Korea University"
+    },
+    {
+      "date": "2021.07.12",
+      "title": "Learning quadrupedal locomotion over challenging terrain",
+      "venue": "CRL, ETH Zurich"
+    },
+    {
+      "date": "2021.07.02",
+      "title": "Learning quadrupedal locomotion over challenging terrain",
+      "venue": "Telluride Neuromorphic Cognition Engineering Workshop"
+    },
+    {
+      "date": "2021.05.21",
+      "title": "Learning quadrupedal locomotion over challenging terrain",
+      "venue": "NCCR Robotics Seminar"
+    },
+    {
+      "date": "2021.02.26",
+      "title": "Learning quadrupedal locomotion over challenging terrain",
+      "venue": "PAIR, University of Toronto"
+    },
+    {
+      "date": "2021.02.12",
+      "title": "인공지능기술을 활용한 4족보행로봇 제어",
+      "venue": "AI Winter School, Korean Society of Mechanical Engineers (KSME)"
+    },
+    {
+      "date": "2020.11.10",
+      "title": "Learning quadrupedal locomotion over challenging terrain",
+      "venue": "CSIRO"
+    },
+    {
+      "date": "2020.08.05",
+      "title": "Learning legged locomotion – walking through a forest",
+      "venue": "Intel Labs"
+    },
+    {
+      "date": "2019.02.13",
+      "title": "시뮬레이션에서의 심층강화학습을 이용한 보행로봇 제어",
+      "venue": "Korea Institute of Industrial Technology (KITECH)"
+    },
+    {
+      "date": "2019.02.11",
+      "title": "시뮬레이션에서의 심층강화학습을 이용한 보행로봇 제어",
+      "venue": "Agency for Defense Development (ADD), Korea"
     }
   ]
 }
