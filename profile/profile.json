@@ -3,7 +3,7 @@
   "photo": "media/team_pic/joonho.jpeg",
   "role": "Group Leader, Neuromeka AI Lab · Advisor, RIVR",
   "status": "On military duty (Technical Research Personnel) until 2027.4.30",
-  "bio": "Robotics researcher and systems integrator with field experience. PhD from the Robotic Systems Lab at ETH Zurich on learning-based locomotion and navigation for legged robots; now leading learning-based control and manipulation for industrial robots at Neuromeka.",
+  "bio": "Robotics researcher and systems integrator with field experience. PhD from the Robotic Systems Lab at ETH Zurich on legged robotics; now leading learning-based control and manipulation for industrial robots at Neuromeka.",
   "links": [
     {
       "label": "joonho.lee@neuromeka.com",
@@ -37,8 +37,8 @@
         "src": "media/profile/anymal-field-monkeys.jpg",
         "cols": 2,
         "rows": 2,
-        "caption": "Learning robust perceptive locomotion for quadrupedal robots in the wild",
-        "sub": "Science Robotics 2022",
+        "caption": "Field deployment in South Africa",
+        "sub": "2023-2024",
         "href": "https://leggedrobotics.github.io/rl-perceptiveloco/"
       },
       {
@@ -54,15 +54,16 @@
         "cols": 1,
         "rows": 1,
         "caption": "Learning robust autonomous navigation and locomotion for wheeled-legged robots",
-        "sub": "Science Robotics 2024"
+        "sub": "Science Robotics 2024", 
+        "href": "science.org/doi/10.1126/scirobotics.adi9641"
       },
       {
         "src": "media/profile/anymal-forest-hike.jpg",
         "cols": 1,
         "rows": 1,
-        "caption": "Learning quadrupedal locomotion over challenging terrain",
-        "sub": "Science Robotics 2020",
-        "href": "https://leggedrobotics.github.io/rl-blindloco/"
+        "caption": "Hiking with ANYmal",
+        "sub": "Science Robotics 2022",
+        "href": "https://leggedrobotics.github.io/rl-perceptiveloco/"
       },
       {
         "src": "media/thumbnails/left_to_right.mp4",
