@@ -36,6 +36,10 @@ The site is served straight from the `main` branch root of `lee-robotics/lee-rob
 
 Every push to `main` redeploys the site within a minute or two.
 
+## Search engines
+
+`profile.html` and `index.html` carry canonical URLs, Open Graph tags and JSON-LD (`Person` / `ResearchOrganization`), and the profile header is also present as static HTML so crawlers see the name without running scripts. `robots.txt` and `sitemap.xml` list the pages. After content changes that add pages, regenerate the sitemap entries (posts are listed by file name). To get indexed and ranked for a name search: verify the site in Google Search Console and submit the sitemap, and link to `https://lee-robotics.github.io/profile.html` as the homepage on Google Scholar, LinkedIn, GitHub, ORCID and in paper author footers; links from those profiles are what rank a personal page for a common name.
+
 ## Run locally
 
 This site is static. Serve the repo root with any local web server, for example:

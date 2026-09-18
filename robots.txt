@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lee-robotics.github.io/sitemap.xml

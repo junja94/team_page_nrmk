@@ -49,6 +49,7 @@ function externalLink(label, href, className = '') {
 function renderHead(profile) {
   const host = document.getElementById('profileHead');
   if (!host) return;
+  host.innerHTML = ''; // replaces the static fallback markup kept for crawlers
   document.title = `${profile.name} · Neuromeka AI Lab`;
 
   const photo = el('div', 'profile-photo');
