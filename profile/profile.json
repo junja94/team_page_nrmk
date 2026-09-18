@@ -19,6 +19,7 @@
     }
   ],
   "scholarUrl": "https://scholar.google.com/citations?user=6Htb7swAAAAJ&hl=en",
+  "hide": [],
   "mosaic": {
     "layout": "custom",
     "columns": 6,

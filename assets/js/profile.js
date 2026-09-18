@@ -16,6 +16,11 @@ const MOSAIC_LAYOUTS = {
   feature: [[4, 2], [1, 1], [1, 1], [1, 1], [1, 1], [4, 1]],
 };
 
+/** Whole sections listed in the top-level "hide" array are not rendered. */
+function sectionHidden(profile, key) {
+  return Array.isArray(profile.hide) && profile.hide.includes(key);
+}
+
 /** Entries with "hidden": true stay in the data but are not rendered. */
 function visible(list) {
   return (Array.isArray(list) ? list : []).filter((item) => item && item.hidden !== true);
@@ -76,7 +81,7 @@ let profileData = {};
 function renderMosaic(mosaic = {}) {
   const host = document.getElementById('profileMosaic');
   if (!host) return;
-  const tiles = visible(mosaic.tiles);
+  const tiles = sectionHidden(profileData, 'mosaic') ? [] : visible(mosaic.tiles);
   if (!tiles.length) { host.hidden = true; return; }
 
   const layout = MOSAIC_LAYOUTS[mosaic.layout] ? mosaic.layout : 'hero';
@@ -160,6 +165,7 @@ function column(title, rows) {
 function renderCareer(profile) {
   const host = document.getElementById('profileCareer');
   if (!host) return;
+  if (sectionHidden(profile, 'career')) { host.hidden = true; return; }
   host.appendChild(column('Experience',
     visible(profile.experience).map((w) => dateRow(w.when, w.org, w.role))));
   host.appendChild(column('Education',
@@ -189,8 +195,8 @@ function buildFundingColumn(grants) {
 function renderFundingAwards(profile) {
   const host = document.getElementById('profileFundingAwards');
   if (!host) return;
-  const grants = visible(profile.funding);
-  const awards = visible(profile.awards);
+  const grants = sectionHidden(profile, 'funding') ? [] : visible(profile.funding);
+  const awards = sectionHidden(profile, 'awards') ? [] : visible(profile.awards);
   if (grants.length) host.appendChild(buildFundingColumn(grants));
   if (awards.length) {
     host.appendChild(column('Awards',
@@ -202,7 +208,7 @@ function renderFundingAwards(profile) {
 function renderStudents(profile) {
   const host = document.getElementById('profileStudents');
   if (!host) return;
-  const students = visible(profile.students);
+  const students = sectionHidden(profile, 'students') ? [] : visible(profile.students);
   if (!students.length) { host.hidden = true; return; }
   host.appendChild(headWithMeta('Former students & mentees'));
   students.forEach((s) => {
@@ -218,6 +224,7 @@ function renderStudents(profile) {
 function renderPublications(profile) {
   const host = document.getElementById('profilePubs');
   if (!host) return;
+  if (sectionHidden(profile, 'publications')) { host.hidden = true; return; }
   const scholar = profile.scholarUrl
     ? externalLink('Full list on Google Scholar →', profile.scholarUrl, 'section-head-link')
     : null;
@@ -244,7 +251,8 @@ function renderPublications(profile) {
 function renderTalks(profile) {
   const host = document.getElementById('profileTalks');
   if (!host) return;
-  const talks = visible(profile.talks);
+  const talks = sectionHidden(profile, 'talks') ? [] : visible(profile.talks);
+  if (!talks.length) { host.hidden = true; return; }
   host.appendChild(headWithMeta('Invited talks & lectures',
     el('span', 'section-meta', `${talks.length} talk${talks.length === 1 ? '' : 's'}`)));
   talks.forEach((t) => {
