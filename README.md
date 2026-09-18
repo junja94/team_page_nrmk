@@ -26,12 +26,12 @@ Individual research posts open on `post.html`. Content is markdown-first so upda
 
 ## Hosting (GitHub Pages)
 
-The site is served straight from the `main` branch root; there is no build step.
+The site is served straight from the `main` branch root of `lee-robotics/lee-robotics.github.io`; there is no build step.
 
 - Repository settings → **Pages** → Source: *Deploy from a branch* → Branch: `main`, folder `/ (root)`.
-- Published URL: `https://junja94.github.io/team_page_nrmk/`
+- Published URL: `https://lee-robotics.github.io/` (a user/organisation site, so it lives at the domain root).
 - `.nojekyll` at the root tells GitHub to publish the files as-is instead of running Jekyll.
-- All links and fetches are relative, so the site works under the repository sub-path without any base-URL config.
+- All links and fetches are relative, so the site also works under a repository sub-path or a custom domain without any base-URL config. For a custom domain, add a `CNAME` file containing the domain and point the domain's DNS at `lee-robotics.github.io`.
 - Videos are committed as regular files. Do **not** put them in Git LFS: GitHub Pages serves LFS pointer files, not the media.
 
 Every push to `main` redeploys the site within a minute or two.
