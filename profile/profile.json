@@ -19,35 +19,47 @@
   ],
   "scholarUrl": "https://scholar.google.com/citations?user=6Htb7swAAAAJ&hl=en",
   "mosaic": {
-    "layout": "grid",
-    "columns": 3,
-    "aspect": "4 / 3",
+    "layout": "custom",
     "rowHeight": 150,
     "tiles": [
       {
-        "src": "",
-        "caption": "Wheeled-legged navigation and locomotion · Science Robotics 2024"
+        "src": "media/profile/scirobotics-cover-2020.jpg",
+        "cols": 1,
+        "rows": 2,
+        "position": "top",
+        "caption": "Science Robotics cover, October 2020 · Learning quadrupedal locomotion over challenging terrain"
       },
       {
-        "src": "",
+        "src": "media/profile/wheeled-legged-alpine.jpg",
+        "cols": 2,
+        "rows": 2,
+        "caption": "Wheeled-legged navigation and locomotion in the field · Science Robotics 2024"
+      },
+      {
+        "src": "media/profile/anymal-field-monkeys.jpg",
+        "cols": 1,
+        "rows": 1,
+        "caption": "ANYmal on a field deployment, with curious company"
+      },
+      {
+        "src": "media/profile/anymal-forest-hike.jpg",
+        "cols": 1,
+        "rows": 1,
+        "position": "50% 40%",
         "caption": "Perceptive locomotion in the wild · Science Robotics 2022"
-      },
-      {
-        "src": "",
-        "caption": "Locomotion over challenging terrain · Science Robotics 2020"
       },
       {
         "src": "media/thumbnails/solder_zoom.mp4",
         "poster": "media/thumbnails/solder_zoom_poster.jpg",
+        "cols": 2,
+        "rows": 2,
         "caption": "Robot soldering on a production line · Neuromeka 2026"
-      },
-      {
-        "src": "",
-        "caption": "Multi-robot cooperation · RA-L 2024"
       },
       {
         "src": "media/thumbnails/left_to_right.mp4",
         "poster": "media/thumbnails/left_to_right_poster.jpg",
+        "cols": 2,
+        "rows": 2,
         "caption": "Tool-aware collision avoidance for cobots · RA-L 2025"
       }
     ]

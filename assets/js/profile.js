@@ -3,9 +3,11 @@
 const PROFILE_URL = 'profile/profile.json';
 
 // Mosaic presets: [columns, rows] per tile on a 4-column grid.
-// "grid" is the exception: every tile is the same size on a grid of
+// "custom" takes each tile's own cols/rows from profile.json instead.
+// "grid" is the other exception: every tile is the same size on a grid of
 // `mosaic.columns` columns (default 3) with a fixed aspect ratio.
 const MOSAIC_LAYOUTS = {
+  custom: [[1, 1]],
   grid: [[1, 1]],
   hero: [[2, 2], [2, 1], [1, 1], [1, 1], [1, 1], [3, 1]],
   even: [[2, 1], [2, 1], [2, 1], [2, 1], [2, 1], [2, 1]],
@@ -79,14 +81,22 @@ function renderMosaic(mosaic = {}) {
   }
 
   tiles.forEach((tile, i) => {
-    const [cols, rows] = spans[i % spans.length];
+    const preset = spans[i % spans.length];
+    const cols = layout === 'custom' ? Number(tile.cols) || 1 : preset[0];
+    const rows = layout === 'custom' ? Number(tile.rows) || 1 : preset[1];
     const cell = el('div', 'mosaic-tile');
     cell.style.gridColumn = `span ${cols}`;
     cell.style.gridRow = `span ${rows}`;
     cell.dataset.cols = String(cols);
 
     const media = createMediaElement({ src: tile.src, poster: tile.poster, alt: tile.caption || '' });
-    if (media) cell.appendChild(media);
+    if (media) {
+      // Per-tile framing: fit "contain" letterboxes instead of cropping;
+      // position e.g. "top" or "50% 30%" chooses which part survives a crop.
+      if (tile.fit) media.style.objectFit = tile.fit;
+      if (tile.position) media.style.objectPosition = tile.position;
+      cell.appendChild(media);
+    }
     else cell.appendChild(el('span', 'mosaic-placeholder', `Research image ${i + 1}`));
     if (tile.caption) cell.appendChild(el('div', 'mosaic-caption', tile.caption));
     host.appendChild(cell);

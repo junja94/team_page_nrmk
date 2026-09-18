@@ -737,6 +737,7 @@ h2 {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-auto-rows: var(--mosaic-row);
+  grid-auto-flow: dense; /* small tiles backfill gaps left by tall ones on narrow screens */
   gap: 8px;
 }
 
@@ -1177,6 +1178,7 @@ h2 {
   }
 
   .mosaic {
+    --mosaic-row: 120px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
