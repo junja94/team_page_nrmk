@@ -2,9 +2,10 @@
 
 function markCurrentNav(container) {
   const file = window.location.pathname.split('/').pop() || 'index.html';
+  // The home page marks no link as current (the design leaves Home unmarked
+  // even though "Team" now points there); other pages mark their own link.
+  if (file === 'index.html') return;
   container.querySelectorAll('nav a').forEach((link) => {
-    // Only a link whose href is exactly this page counts; in-page anchors
-    // such as index.html#team never mark Home as current.
     if (link.getAttribute('href') === file) link.setAttribute('aria-current', 'page');
   });
 }
