@@ -125,7 +125,17 @@
       "role": "Planned the project and lead its execution (project lead, Neuromeka)",
       "partners": "Georgia Tech (Sehoon Ha et al.), ETRI, KAIST",
       "amount": "≈ US$7M (KRW 10B) over 5 years",
-      "link": "https://zdnet.co.kr/view/?no=20240919155157"
+      "link": "https://zdnet.co.kr/view/?no=20240919155157",
+      "press": [
+        {
+          "label": "Georgia Tech News",
+          "href": "https://news.research.gatech.edu/2025/06/25/tech-researchers-tabbed-build-ai-systems-medical-robots-south-korea"
+        },
+        {
+          "label": "ZDNet Korea",
+          "href": "https://zdnet.co.kr/view/?no=20240919155157"
+        }
+      ]
     }
   ],
   "publications": [
@@ -382,13 +392,15 @@
       "date": "2021.05.21",
       "title": "Learning quadrupedal locomotion over challenging terrain",
       "venue": "NCCR Robotics Seminar",
-      "country": "CH"
+      "country": "CH",
+      "link": "https://www.youtube.com/watch?v=69tqQq1EpEI"
     },
     {
       "date": "2021.02.26",
       "title": "Learning quadrupedal locomotion over challenging terrain",
       "venue": "PAIR, University of Toronto",
-      "country": "CA"
+      "country": "CA",
+      "link": "https://youtu.be/YxBK4GEDiCQ"
     },
     {
       "date": "2021.02.12",

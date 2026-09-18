@@ -71,7 +71,8 @@ def build_html(p):
         section('Former students & mentees', rows)
     if 'talks' not in hide:
         talks = visible(p.get('talks'))
-        rows = ''.join(f'<div class="row"><div class="when">{esc(t.get("date"))}</div><div><span class="p">{esc(t.get("title"))}</span>'
+        video = lambda t: f' <a href="{esc(t["link"])}">[video]</a>' if t.get('link') else ''
+        rows = ''.join(f'<div class="row"><div class="when">{esc(t.get("date"))}</div><div><span class="p">{esc(t.get("title"))}</span>{video(t)}'
                        f'<span class="s"> — {esc(t.get("venue"))}{" ("+esc(t["country"])+")" if t.get("country") else ""}</span></div></div>' for t in talks)
         section('Invited talks & lectures', rows, f'{len(talks)} talks')
 

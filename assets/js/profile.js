@@ -187,6 +187,12 @@ function buildFundingColumn(grants) {
     if (g.program) body.appendChild(el('div', 'funding-program', g.program));
     if (g.role) body.appendChild(el('div', 'funding-role', g.role));
     if (g.partners) body.appendChild(el('div', 'funding-meta', `Partners: ${g.partners}`));
+    const press = visible(g.press).filter((item) => item.label && item.href);
+    if (press.length) {
+      const line = el('div', 'funding-meta funding-press', 'Press:');
+      press.forEach((item) => line.appendChild(externalLink(item.label, item.href)));
+      body.appendChild(line);
+    }
     if (g.amount) body.appendChild(el('div', 'funding-amount', g.amount));
     row.appendChild(body);
     col.appendChild(row);
@@ -274,7 +280,10 @@ function renderTalks(profile) {
   talks.forEach((t) => {
     const row = el('div', 'talk-row');
     row.appendChild(el('div', 'talk-date', t.date));
-    row.appendChild(el('div', 'talk-title', t.title));
+    const title = el('div', 'talk-title');
+    title.appendChild(el('span', 'talk-title-text', t.title));
+    if (t.link) title.appendChild(externalLink('Video', t.link));
+    row.appendChild(title);
     const venue = el('div', 'talk-venue', t.venue || '');
     if (t.country) venue.appendChild(el('span', 'talk-country', t.country));
     row.appendChild(venue);

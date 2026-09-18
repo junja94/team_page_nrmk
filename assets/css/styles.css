@@ -935,6 +935,12 @@ a.funding-title:hover {
   color: var(--color-meta);
 }
 
+.funding-press {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 10px;
+}
+
 .funding-amount {
   align-self: start;
   margin-top: 4px;
@@ -1039,10 +1045,23 @@ a.student-name {
   font-variant-numeric: tabular-nums;
 }
 
+/* The title truncates; an optional "Video" link after it never does. */
 .talk-title {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  min-width: 0;
+}
+
+.talk-title-text {
   font-weight: 500;
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.talk-title a {
+  flex: none;
 }
 
 .talk-venue {
