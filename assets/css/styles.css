@@ -705,14 +705,14 @@ h2 {
 
 .profile-head {
   display: grid;
-  grid-template-columns: 120px minmax(0, 1fr);
+  grid-template-columns: 180px minmax(0, 1fr);
   gap: 28px;
   align-items: start;
 }
 
 .profile-photo {
-  width: 120px;
-  height: 120px;
+  width: 180px;
+  height: 180px;
   overflow: hidden;
   border: 1px solid var(--color-line);
 }
