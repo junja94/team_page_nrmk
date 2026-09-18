@@ -296,12 +296,12 @@ h2 {
   font-weight: 700;
 }
 
-/* Image slider: a horizontal track of full-width slides inside a 4:5 frame. */
+/* Image slider: a horizontal track of full-width slides inside a square frame. */
 .hero-figure {
   margin: 0;
   position: relative;
   overflow: hidden;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
   border: 1px solid var(--color-line);
 }
 
