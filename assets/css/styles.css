@@ -1256,6 +1256,24 @@ a.mosaic-tile:hover .mosaic-caption-title {
     grid-column: 2;
   }
 
+  .partner-labs-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .partner-lab-logo {
+    height: 52px;
+  }
+
+  .partner-lab-logo span {
+    font-size: 11px;
+    padding: 0 6px;
+  }
+
+  .partner-lab-name {
+    font-size: 15px;
+  }
+
   .position-row {
     grid-template-columns: minmax(0, 1fr);
     gap: 6px;
@@ -1287,13 +1305,28 @@ a.mosaic-tile:hover .mosaic-caption-title {
 }
 
 @media (max-width: 520px) {
+  /* Keep the thumbnail beside the text, just narrower. */
   .post-row {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 10px;
+    grid-template-columns: 112px minmax(0, 1fr);
+    gap: 12px;
+    padding: 14px 0;
   }
 
   .post-row-media {
     margin: 0;
+  }
+
+  .post-row-body {
+    gap: 4px;
+    padding-top: 0;
+  }
+
+  .post-row h3 {
+    font-size: 18px;
+  }
+
+  .post-row-publication {
+    display: none;
   }
 }
 
