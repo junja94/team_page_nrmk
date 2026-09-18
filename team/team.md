@@ -8,37 +8,37 @@ Profile: profile.html
 - PhD. & MSc., ETH Zurich
 - BSc, POSTECH
 
-## Yunho Kim | Researcher
+## Yunho Kim
 Image: media/team_pic/yoonho.jpeg
 Link: [Website](https://awesomericky.github.io/)
 - MSc., KAIST
 - BSc., SNU
 
-## Quan Nguyen | Researcher
+## Quan Nguyen
 Image: media/team_pic/quan.jpeg
 - BSc., KAIST
 
-## Taewhan Kim | Researcher
+## Taewhan Kim
 Image: media/team_pic/taewhan.jpg
 - MSc., Peking University
 - BSc., UNNC
 
-## Chan Lee | Researcher
+## Chan Lee
 - Forbes 30 Under 30 Asia (2024)
 - BSc., KAIST
 
-## Dohyon Gwak | Researcher
+## Dohyon Gwak
 - BSc., Handong Global University
 
 
 # Collaborators
 
-## Geontae Park | Master's Student
+## Geontae Park
 Image: media/team_pic/geontae.jpg
 - Master's Program, POSTECH
 - BSc., POSTECH
 
-## Seungmin Son | Master's Student
+## Seungmin Son
 Image: media/team_pic/seungmin.jpg
 - Master's Program, POSTECH
 - BSc., POSTECH
