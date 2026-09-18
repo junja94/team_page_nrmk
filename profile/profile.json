@@ -305,6 +305,12 @@
   ],
   "talks": [
     {
+      "date": "2026.09.22",
+      "title": "From Paper to Factory Floor: Building Smart Robots for Industry",
+      "venue": "ME Seminar, KAIST",
+      "country": "KR"
+    },
+    {
       "date": "2025.11.28",
       "title": "Teaching Robots to Walk and Work",
       "venue": "CSE/GSAI Seminar, POSTECH",
