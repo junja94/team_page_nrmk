@@ -3,7 +3,8 @@
 const PROFILE_URL = 'profile/profile.json';
 
 // Mosaic presets: [columns, rows] per tile on a 4-column grid.
-// "custom" takes each tile's own cols/rows from profile.json instead.
+// "custom" takes each tile's own cols/rows from profile.json instead, on
+// mosaic.columns columns (default 4).
 // "grid" is the other exception: every tile is the same size on a grid of
 // `mosaic.columns` columns (default 3) with a fixed aspect ratio.
 const MOSAIC_LAYOUTS = {
@@ -77,6 +78,7 @@ function renderMosaic(mosaic = {}) {
     host.style.setProperty('--mosaic-cols', String(Number(mosaic.columns) || 3));
     host.style.setProperty('--mosaic-aspect', mosaic.aspect || '4 / 3');
   } else {
+    if (layout === 'custom') host.style.setProperty('--mosaic-cols', String(Number(mosaic.columns) || 4));
     host.style.setProperty('--mosaic-row', `${Number(mosaic.rowHeight) || 150}px`);
   }
 

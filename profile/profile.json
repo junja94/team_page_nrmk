@@ -20,46 +20,54 @@
   "scholarUrl": "https://scholar.google.com/citations?user=6Htb7swAAAAJ&hl=en",
   "mosaic": {
     "layout": "custom",
-    "rowHeight": 150,
+    "columns": 3,
+    "rowHeight": 180,
     "tiles": [
       {
         "src": "media/profile/scirobotics-cover-2020.jpg",
         "cols": 1,
         "rows": 2,
         "position": "top",
-        "caption": "Science Robotics cover, October 2020 · Learning quadrupedal locomotion over challenging terrain"
+        "caption": "Science Robotics cover, 2020"
       },
       {
         "src": "media/profile/wheeled-legged-alpine.jpg",
         "cols": 2,
         "rows": 2,
-        "caption": "Wheeled-legged navigation and locomotion in the field · Science Robotics 2024"
+        "caption": "Wheeled-legged robots in the field"
+      },
+      {
+        "src": "media/profile/anymal-field-monkeys.jpg",
+        "cols": 2,
+        "rows": 2,
+        "caption": "ANYmal on deployment"
+      },
+      {
+        "src": "media/profile/powder-dispensing.jpg",
+        "cols": 1,
+        "rows": 2,
+        "position": "25% 50%",
+        "caption": "Powder dispensing"
       },
       {
         "src": "media/profile/anymal-forest-hike.jpg",
         "cols": 1,
         "rows": 1,
-        "caption": "Perceptive locomotion in the wild · Science Robotics 2022"
+        "caption": "Perceptive locomotion"
       },
       {
         "src": "media/thumbnails/left_to_right.mp4",
         "poster": "media/thumbnails/left_to_right_poster.jpg",
         "cols": 1,
         "rows": 1,
-        "caption": "Tool-aware collision avoidance for cobots · RA-L 2025"
-      },
-      {
-        "src": "media/profile/anymal-field-monkeys.jpg",
-        "cols": 2,
-        "rows": 2,
-        "caption": "ANYmal on a field deployment, with curious company"
+        "caption": "Tool-aware collision avoidance"
       },
       {
         "src": "media/thumbnails/solder_zoom.mp4",
         "poster": "media/thumbnails/solder_zoom_poster.jpg",
-        "cols": 2,
-        "rows": 2,
-        "caption": "Robot soldering on a production line · Neuromeka 2026"
+        "cols": 1,
+        "rows": 1,
+        "caption": "Robot soldering"
       }
     ]
   },
