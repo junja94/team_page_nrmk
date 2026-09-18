@@ -54,7 +54,7 @@
         "cols": 1,
         "rows": 1,
         "caption": "Learning robust autonomous navigation and locomotion for wheeled-legged robots",
-        "sub": "Science Robotics 2024", 
+        "sub": "Science Robotics 2024",
         "href": "science.org/doi/10.1126/scirobotics.adi9641"
       },
       {
@@ -170,6 +170,14 @@
       "venue": "Science Robotics 9(89)",
       "award": "",
       "link": ""
+    },
+    {
+      "year": 2024,
+      "title": "When monkeys meet an ANYmal robot in the wild",
+      "authors": "Charlotte Canteloup, Joonho Lee, Samuel Zimmermann, Morgane Alvino, Markus Montenegro, Marco Hutter, Erica van de Waal",
+      "venue": "bioRxiv 2024.08.13.607714",
+      "award": "",
+      "link": "https://www.biorxiv.org/content/10.1101/2024.08.13.607714v1"
     },
     {
       "year": 2022,
