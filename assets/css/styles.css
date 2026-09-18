@@ -1229,16 +1229,20 @@ a.mosaic-tile:hover .mosaic-caption-title {
     gap: 16px;
   }
 
-  /* Rows sized so a 1x2 portrait tile keeps roughly the cover's 4:5 shape.
-     Set directly, since the script writes --mosaic-row inline for desktop. */
-  .mosaic {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-auto-rows: 108px;
+  /* Same arrangement as desktop, scaled with the viewport: rows are the
+     desktop row height as a fraction of the content width. Captions cannot
+     fit at this size, so they hide; the tiles still link. */
+  .mosaic:not(.mosaic-grid) {
+    grid-auto-rows: calc((100vw - 2 * var(--content-padding)) * var(--mosaic-row-frac, 0.11));
+    gap: 4px;
   }
 
-  .mosaic-tile[data-cols='3'],
-  .mosaic-tile[data-cols='4'] {
-    grid-column: span 2;
+  .mosaic-grid {
+    gap: 4px;
+  }
+
+  .mosaic .mosaic-caption {
+    display: none;
   }
 
   /* Credentials wrap under the name instead of taking a third column. */

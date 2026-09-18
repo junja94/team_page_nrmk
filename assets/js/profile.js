@@ -82,7 +82,11 @@ function renderMosaic(mosaic = {}) {
     host.style.setProperty('--mosaic-aspect', mosaic.aspect || '4 / 3');
   } else {
     if (layout === 'custom') host.style.setProperty('--mosaic-cols', String(Number(mosaic.columns) || 4));
-    host.style.setProperty('--mosaic-row', `${Number(mosaic.rowHeight) || 150}px`);
+    const rowHeight = Number(mosaic.rowHeight) || 150;
+    host.style.setProperty('--mosaic-row', `${rowHeight}px`);
+    // Row height as a fraction of the 912px desktop content width, so narrow
+    // screens can scale the same layout down instead of restacking it.
+    host.style.setProperty('--mosaic-row-frac', String(rowHeight / 912));
   }
 
   // A tile links to its paper: an explicit href, else the project link of the
