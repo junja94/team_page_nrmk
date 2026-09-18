@@ -21,8 +21,8 @@
   "scholarUrl": "https://scholar.google.com/citations?user=6Htb7swAAAAJ&hl=en",
   "mosaic": {
     "layout": "custom",
-    "columns": 4,
-    "rowHeight": 140,
+    "columns": 5,
+    "rowHeight": 120,
     "tiles": [
       {
         "src": "media/profile/scirobotics-cover-2020.jpg",
@@ -42,10 +42,18 @@
         "href": "https://www.biorxiv.org/content/10.1101/2024.08.13.607714v1"
       },
       {
+        "src": "media/profile/anymal-on-wheels.webp",
+        "cols": 2,
+        "rows": 2,
+        "caption": "Learning robust autonomous navigation and locomotion for wheeled-legged robots",
+        "sub": "Science Robotics 2024",
+        "href": "https://www.science.org/doi/10.1126/scirobotics.adi9641"
+      },
+      {
         "src": "media/profile/powder-dispensing.jpg",
         "cols": 1,
-        "rows": 2,
-        "position": "25% 50%",
+        "rows": 1,
+        "position": "50% 45%",
         "caption": "Powder dispensing with a cobot",
         "sub": "Neuromeka"
       },
@@ -55,7 +63,7 @@
         "rows": 1,
         "caption": "Learning robust autonomous navigation and locomotion for wheeled-legged robots",
         "sub": "Science Robotics 2024",
-        "href": "science.org/doi/10.1126/scirobotics.adi9641"
+        "href": "https://www.science.org/doi/10.1126/scirobotics.adi9641"
       },
       {
         "src": "media/profile/anymal-forest-hike.jpg",
