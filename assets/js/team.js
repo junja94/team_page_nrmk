@@ -85,6 +85,9 @@ function buildPersonRow(person) {
     img.alt = person.name;
     img.loading = 'lazy';
     photo.appendChild(img);
+  } else {
+    const initials = person.name.split(/\s+/).map((part) => part[0]).join('').slice(0, 2).toUpperCase();
+    photo.appendChild(el('span', 'person-initials', initials));
   }
   row.appendChild(photo);
 

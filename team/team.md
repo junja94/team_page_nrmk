@@ -23,6 +23,13 @@ Image: media/team_pic/taewhan.jpg
 - MSc., Peking University
 - BSc., UNNC
 
+## Chan Lee | Researcher
+- Forbes 30 Under 30 Asia (2024)
+- BSc., KAIST
+
+## Dohyon Gwak | Researcher
+- BSc., Handong Global University
+
 
 # Collaborators
 
@@ -37,6 +44,6 @@ Image: media/team_pic/seungmin.jpg
 - BSc., POSTECH
 
 ### Partner labs
+- [Robotics Lab.](http://rnb.postech.ac.kr/) | POSTECH | media/partner_logos/postech.svg
 - [Sehoon Ha](https://faculty.cc.gatech.edu/~sha9/) | Georgia Tech | media/partner_logos/gatech.svg
 - [Intelligent Robotic Systems Lab.](https://sites.google.com/view/kaist-roboticslab) | KAIST | media/partner_logos/kaist.svg
-- [Robotics Lab.](http://rnb.postech.ac.kr/) | POSTECH | media/partner_logos/postech.svg
