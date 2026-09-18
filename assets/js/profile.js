@@ -216,7 +216,9 @@ function renderTalks(profile) {
     const row = el('div', 'talk-row');
     row.appendChild(el('div', 'talk-date', t.date));
     row.appendChild(el('div', 'talk-title', t.title));
-    row.appendChild(el('div', 'talk-venue', t.venue || ''));
+    const venue = el('div', 'talk-venue', t.venue || '');
+    if (t.country) venue.appendChild(el('span', 'talk-country', t.country));
+    row.appendChild(venue);
     host.appendChild(row);
   });
 }

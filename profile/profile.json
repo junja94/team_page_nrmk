@@ -267,97 +267,116 @@
     {
       "date": "2025.11.28",
       "title": "Teaching Robots to Walk and Work",
-      "venue": "CSE/GSAI Seminar, POSTECH"
+      "venue": "CSE/GSAI Seminar, POSTECH",
+      "country": "KR"
     },
     {
       "date": "2025.06.04",
       "title": "Training Robots to Move and Work",
-      "venue": "IRIM Seminar, Georgia Institute of Technology"
+      "venue": "IRIM Seminar, Georgia Institute of Technology",
+      "country": "US"
     },
     {
       "date": "2024.01.02",
       "title": "Learning locomotion and autonomous navigation for legged robots",
-      "venue": "SUSTech"
+      "venue": "SUSTech",
+      "country": "CN"
     },
     {
       "date": "2023.12.29",
       "title": "Learning locomotion and autonomous navigation for legged robots",
-      "venue": "Zhejiang University"
+      "venue": "Zhejiang University",
+      "country": "CN"
     },
     {
       "date": "2023.08.02",
       "title": "Navigating real-world with legged robots",
-      "venue": "Georgia Institute of Technology"
+      "venue": "Georgia Institute of Technology",
+      "country": "US"
     },
     {
       "date": "2022.11.10",
       "title": "Robust quadrupedal locomotion via RL",
-      "venue": "Krafton"
+      "venue": "Krafton",
+      "country": "KR"
     },
     {
       "date": "2022.11.08",
       "title": "Toward the real-world applications of autonomous walking robots",
-      "venue": "POSTECH"
+      "venue": "POSTECH",
+      "country": "KR"
     },
     {
       "date": "2022.11.03",
       "title": "Developing legged robots for outdoor use",
-      "venue": "Agency for Defense Development (ADD), Korea"
+      "venue": "Agency for Defense Development (ADD)",
+      "country": "KR"
     },
     {
       "date": "2022.04.25",
       "title": "RL for quadrupedal locomotion",
-      "venue": "DLR"
+      "venue": "DLR",
+      "country": "DE"
     },
     {
       "date": "2022.01.12",
       "title": "Learning quadrupedal locomotion over challenging terrain",
-      "venue": "RILAB, Korea University"
+      "venue": "RILAB, Korea University",
+      "country": "KR"
     },
     {
       "date": "2021.07.12",
       "title": "Learning quadrupedal locomotion over challenging terrain",
-      "venue": "CRL, ETH Zurich"
+      "venue": "CRL, ETH Zurich",
+      "country": "CH"
     },
     {
       "date": "2021.07.02",
       "title": "Learning quadrupedal locomotion over challenging terrain",
-      "venue": "Telluride Neuromorphic Cognition Engineering Workshop"
+      "venue": "Telluride Neuromorphic Cognition Engineering Workshop",
+      "country": "US"
     },
     {
       "date": "2021.05.21",
       "title": "Learning quadrupedal locomotion over challenging terrain",
-      "venue": "NCCR Robotics Seminar"
+      "venue": "NCCR Robotics Seminar",
+      "country": "CH"
     },
     {
       "date": "2021.02.26",
       "title": "Learning quadrupedal locomotion over challenging terrain",
-      "venue": "PAIR, University of Toronto"
+      "venue": "PAIR, University of Toronto",
+      "country": "CA"
     },
     {
       "date": "2021.02.12",
       "title": "인공지능기술을 활용한 4족보행로봇 제어",
-      "venue": "AI Winter School, Korean Society of Mechanical Engineers (KSME)"
+      "venue": "AI Winter School, Korean Society of Mechanical Engineers (KSME)",
+      "country": "KR"
     },
     {
       "date": "2020.11.10",
       "title": "Learning quadrupedal locomotion over challenging terrain",
-      "venue": "CSIRO"
+      "venue": "CSIRO",
+      "country": "AU"
     },
     {
       "date": "2020.08.05",
       "title": "Learning legged locomotion – walking through a forest",
-      "venue": "Intel Labs"
+      "venue": "Intel Labs",
+      "country": "US"
     },
     {
       "date": "2019.02.13",
       "title": "시뮬레이션에서의 심층강화학습을 이용한 보행로봇 제어",
-      "venue": "Korea Institute of Industrial Technology"
+      "venue": "Korea Institute of Industrial Technology",
+      "country": "KR"
     },
     {
       "date": "2019.02.11",
       "title": "시뮬레이션에서의 심층강화학습을 이용한 보행로봇 제어",
-      "venue": "Agency for Defense Development (ADD), Korea"
+      "venue": "Agency for Defense Development (ADD)",
+      "country": "KR"
     }
   ]
 }
