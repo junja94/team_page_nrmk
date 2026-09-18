@@ -21,8 +21,8 @@
   "scholarUrl": "https://scholar.google.com/citations?user=6Htb7swAAAAJ&hl=en",
   "mosaic": {
     "layout": "custom",
-    "columns": 5,
-    "rowHeight": 120,
+    "columns": 6,
+    "rowHeight": 100,
     "tiles": [
       {
         "src": "media/profile/scirobotics-cover-2020.jpg",
@@ -52,44 +52,36 @@
       {
         "src": "media/profile/powder-dispensing.jpg",
         "cols": 1,
-        "rows": 1,
-        "position": "50% 45%",
+        "rows": 2,
+        "position": "25% 50%",
         "caption": "Powder dispensing with a cobot",
         "sub": "Neuromeka"
       },
       {
-        "src": "media/profile/wheeled-legged-alpine.jpg",
-        "cols": 1,
-        "rows": 1,
-        "caption": "Learning robust autonomous navigation and locomotion for wheeled-legged robots",
-        "sub": "Science Robotics 2024",
-        "href": "https://www.science.org/doi/10.1126/scirobotics.adi9641"
-      },
-      {
-        "src": "media/profile/anymal-forest-hike.jpg",
-        "cols": 1,
-        "rows": 1,
-        "caption": "Hiking with ANYmal",
-        "sub": "Science Robotics 2022",
-        "href": "https://leggedrobotics.github.io/rl-perceptiveloco/"
+        "src": "media/thumbnails/solder_zoom.mp4",
+        "poster": "media/thumbnails/solder_zoom_poster.jpg",
+        "cols": 2,
+        "rows": 2,
+        "caption": "Learning-augmented robotic automation for real-world manufacturing",
+        "sub": "arXiv 2026 · under review, Nature Communications",
+        "href": "https://arxiv.org/abs/2604.22235"
       },
       {
         "src": "media/thumbnails/left_to_right.mp4",
         "poster": "media/thumbnails/left_to_right_poster.jpg",
-        "cols": 1,
-        "rows": 1,
+        "cols": 2,
+        "rows": 2,
         "caption": "Learning fast, tool-aware collision avoidance for collaborative robots",
         "sub": "IEEE RA-L 2025",
         "href": "https://arxiv.org/abs/2508.20457"
       },
       {
-        "src": "media/thumbnails/solder_zoom.mp4",
-        "poster": "media/thumbnails/solder_zoom_poster.jpg",
-        "cols": 1,
-        "rows": 1,
-        "caption": "Learning-augmented robotic automation for real-world manufacturing",
-        "sub": "arXiv 2026 · under review, Nature Communications",
-        "href": "https://arxiv.org/abs/2604.22235"
+        "src": "media/profile/anymal-forest-hike.jpg",
+        "cols": 2,
+        "rows": 2,
+        "caption": "Hiking with ANYmal",
+        "sub": "Science Robotics 2022",
+        "href": "https://leggedrobotics.github.io/rl-perceptiveloco/"
       }
     ]
   },
