@@ -823,8 +823,10 @@ a.mosaic-tile:hover .mosaic-caption-title {
   line-height: 1.45;
 }
 
+/* Experience / Education: the date column hugs its text ("2018 – 2024") with
+   roughly half the gap the 120px handoff column left before the title. */
 .dated-row.date-120 {
-  grid-template-columns: 120px minmax(0, 1fr);
+  grid-template-columns: 88px minmax(0, 1fr);
 }
 
 .dated-row.date-48 {
