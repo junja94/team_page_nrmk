@@ -1,7 +1,13 @@
 {
   "heroImages": [
-    { "src": "media/hero/eir_gemini.jpg", "alt": "Neuromeka EIR humanoid robot at a workbench" },
-    { "src": "media/hero/solder_line.jpg", "alt": "Robot performing precision soldering on a production line" }
+    {
+      "src": "media/hero/solder_line.jpg",
+      "alt": "Robot performing precision soldering on a production line"
+    },
+    {
+      "src": "media/hero/eir_gemini.jpg",
+      "alt": "Neuromeka EIR humanoid robot at a workbench"
+    }
   ],
   "heroIntervalMs": 6000,
   "heroCopyUrl": "content/hero.md",
