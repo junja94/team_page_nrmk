@@ -31,7 +31,7 @@
         "cols": 2,
         "rows": 2,
         "caption": "Learned robot soldering, validated on a live factory floor",
-        "sub": "under review, Nature Communications",
+        "sub": "Under review, Nature Communications",
         "href": "https://arxiv.org/abs/2604.22235"
       },
       {
@@ -49,7 +49,7 @@
         "rows": 2,
         "position": "50% 45%",
         "caption": "Powder dispensing with a cobot",
-        "sub": "Neuromeka"
+        "sub": "Ongoing work"
       },
       {
         "src": "media/thumbnails/left_to_right.mp4",
@@ -75,7 +75,7 @@
         "cols": 3,
         "rows": 2,
         "caption": "When monkeys meet an ANYmal robot in the wild",
-        "sub": "bioRxiv 2024",
+        "sub": "In South Africa, bioRxiv 2024",
         "href": "https://www.biorxiv.org/content/10.1101/2024.08.13.607714v1"
       },
       {
