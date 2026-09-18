@@ -28,46 +28,53 @@
         "cols": 1,
         "rows": 2,
         "position": "top",
-        "caption": "Science Robotics cover, 2020"
+        "caption": "Learning quadrupedal locomotion over challenging terrain",
+        "sub": "Science Robotics 2020 · cover"
       },
       {
         "src": "media/profile/anymal-field-monkeys.jpg",
         "cols": 2,
         "rows": 2,
-        "caption": "ANYmal on deployment"
+        "caption": "Learning robust perceptive locomotion for quadrupedal robots in the wild",
+        "sub": "Science Robotics 2022"
       },
       {
         "src": "media/profile/powder-dispensing.jpg",
         "cols": 1,
         "rows": 2,
         "position": "25% 50%",
-        "caption": "Powder dispensing"
+        "caption": "Powder dispensing with a cobot",
+        "sub": "Neuromeka"
       },
       {
         "src": "media/profile/wheeled-legged-alpine.jpg",
         "cols": 1,
         "rows": 1,
-        "caption": "Wheeled-legged robots in the field"
+        "caption": "Learning robust autonomous navigation and locomotion for wheeled-legged robots",
+        "sub": "Science Robotics 2024"
       },
       {
         "src": "media/profile/anymal-forest-hike.jpg",
         "cols": 1,
         "rows": 1,
-        "caption": "Perceptive locomotion"
+        "caption": "Learning quadrupedal locomotion over challenging terrain",
+        "sub": "Science Robotics 2020"
       },
       {
         "src": "media/thumbnails/left_to_right.mp4",
         "poster": "media/thumbnails/left_to_right_poster.jpg",
         "cols": 1,
         "rows": 1,
-        "caption": "Tool-aware collision avoidance"
+        "caption": "Learning fast, tool-aware collision avoidance for collaborative robots",
+        "sub": "IEEE RA-L 2025"
       },
       {
         "src": "media/thumbnails/solder_zoom.mp4",
         "poster": "media/thumbnails/solder_zoom_poster.jpg",
         "cols": 1,
         "rows": 1,
-        "caption": "Robot soldering"
+        "caption": "Learning-augmented robotic automation for real-world manufacturing",
+        "sub": "arXiv 2025"
       }
     ]
   },

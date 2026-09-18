@@ -100,7 +100,12 @@ function renderMosaic(mosaic = {}) {
       cell.appendChild(media);
     }
     else cell.appendChild(el('span', 'mosaic-placeholder', `Research image ${i + 1}`));
-    if (tile.caption) cell.appendChild(el('div', 'mosaic-caption', tile.caption));
+    if (tile.caption) {
+      const caption = el('div', 'mosaic-caption');
+      caption.appendChild(el('div', 'mosaic-caption-title', tile.caption));
+      if (tile.sub) caption.appendChild(el('div', 'mosaic-caption-sub', tile.sub));
+      cell.appendChild(caption);
+    }
     host.appendChild(cell);
   });
   observeVideos(host);
