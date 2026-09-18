@@ -259,6 +259,11 @@
   ],
   "talks": [
     {
+      "date": "2025.06.04",
+      "title": "Training Robots to Move and Work",
+      "venue": "IRIM Seminar, Georgia Institute of Technology"
+    },
+    {
       "date": "2024.01.02",
       "title": "Learning locomotion and autonomous navigation for legged robots",
       "venue": "SUSTech"
