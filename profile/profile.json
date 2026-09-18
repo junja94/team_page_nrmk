@@ -233,6 +233,10 @@
       "note": "Teammate, Neuromeka · now PhD, Georgia Tech"
     },
     {
+      "name": "Yifan Liu",
+      "note": "MSc thesis, ETH RSL, now RIVR"
+    },
+    {
       "name": "Tianxu An",
       "note": "MSc thesis, ETH RSL"
     },
@@ -251,10 +255,6 @@
     {
       "name": "Álvaro Belmonte-Baeza",
       "note": "MSc thesis, ETH RSL"
-    },
-    {
-      "name": "Yifan Liu",
-      "note": "MSc thesis, ETH RSL, now RIVR"
     }
   ],
   "talks": [

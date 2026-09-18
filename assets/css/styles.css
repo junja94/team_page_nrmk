@@ -860,12 +860,11 @@ a.mosaic-tile:hover .mosaic-caption-title {
   display: grid;
   grid-template-columns: 48px minmax(0, 1fr);
   gap: 14px;
-  padding: 10px 0;
+  padding: 9px 0;
   border-bottom: 1px solid var(--color-divider);
 }
 
 .pub-year {
-  padding-top: 2px;
   font-size: 13px;
   color: var(--color-meta);
   font-variant-numeric: tabular-nums;
@@ -874,14 +873,14 @@ a.mosaic-tile:hover .mosaic-caption-title {
 .pub-body {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2px;
 }
 
+/* Same weight and size as the lead line of the other CV rows. */
 .pub-title {
-  font-family: var(--font-head);
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 1.2;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
 }
 
 .pub-authors {
