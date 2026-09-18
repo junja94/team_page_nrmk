@@ -22,21 +22,30 @@
   "hide": ["students"],
   "mosaic": {
     "layout": "custom",
-    "columns": 6,
-    "rowHeight": 100,
+    "columns": 8,
+    "rowHeight": 80,
     "tiles": [
       {
         "src": "media/thumbnails/solder_zoom.mp4",
         "poster": "media/thumbnails/solder_zoom_poster.jpg",
-        "cols": 3,
+        "cols": 2,
         "rows": 2,
         "caption": "Learning-augmented robotic automation for real-world manufacturing",
-        "sub": "arXiv 2026 · under review, Nature Communications",
+        "sub": "under review, Nature Communications",
         "href": "https://arxiv.org/abs/2604.22235"
       },
       {
+        "src": "media/thumbnails/short_insert.mp4",
+        "poster": "media/thumbnails/short_insert_poster.jpg",
+        "cols": 2,
+        "rows": 2,
+        "position": "42% 50%",
+        "caption": "Proprioceptive reflex learning for contact-rich manipulation",
+        "sub": "Submitted to ICRA 2027"
+      },
+      {
         "src": "media/profile/powder-dispensing.jpg",
-        "cols": 1,
+        "cols": 2,
         "rows": 2,
         "position": "50% 45%",
         "caption": "Powder dispensing with a cobot",
@@ -57,13 +66,13 @@
         "cols": 1,
         "rows": 2,
         "position": "top",
-        "caption": "Learning quadrupedal locomotion over challenging terrain",
+        "caption": "Robust outdoor locomotion",
         "sub": "Science Robotics 2020 · cover",
         "href": "https://leggedrobotics.github.io/rl-blindloco/"
       },
       {
         "src": "media/profile/anymal-field-monkeys.jpg",
-        "cols": 2,
+        "cols": 3,
         "rows": 2,
         "caption": "When monkeys meet an ANYmal robot in the wild",
         "sub": "bioRxiv 2024",
@@ -79,7 +88,7 @@
       },
       {
         "src": "media/profile/anymal-forest-hike.jpg",
-        "cols": 1,
+        "cols": 2,
         "rows": 2,
         "caption": "Hiking with ANYmal",
         "sub": "Science Robotics 2022",
@@ -139,6 +148,15 @@
     }
   ],
   "publications": [
+    {
+      "year": 2026,
+      "title": "Proprioceptive reflex learning for contact-rich manipulation",
+      "authors": "Quan Nguyen, Yunho Kim, Joonho Lee",
+      "venue": "Submitted to ICRA 2027",
+      "award": "",
+      "link": "",
+      "hidden": false
+    },
     {
       "year": 2026,
       "title": "Learning-augmented robotic automation for real-world manufacturing",
