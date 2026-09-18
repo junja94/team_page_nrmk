@@ -16,6 +16,11 @@ const MOSAIC_LAYOUTS = {
   feature: [[4, 2], [1, 1], [1, 1], [1, 1], [1, 1], [4, 1]],
 };
 
+/** Entries with "hidden": true stay in the data but are not rendered. */
+function visible(list) {
+  return (Array.isArray(list) ? list : []).filter((item) => item && item.hidden !== true);
+}
+
 function headWithMeta(title, metaNode) {
   const head = el('div', 'section-head');
   head.appendChild(el('h2', '', title));
@@ -71,7 +76,7 @@ let profileData = {};
 function renderMosaic(mosaic = {}) {
   const host = document.getElementById('profileMosaic');
   if (!host) return;
-  const tiles = Array.isArray(mosaic.tiles) ? mosaic.tiles : [];
+  const tiles = visible(mosaic.tiles);
   if (!tiles.length) { host.hidden = true; return; }
 
   const layout = MOSAIC_LAYOUTS[mosaic.layout] ? mosaic.layout : 'hero';
@@ -92,7 +97,7 @@ function renderMosaic(mosaic = {}) {
   // A tile links to its paper: an explicit href, else the project link of the
   // publication with the same title.
   const linkFor = (tile) => tile.href
-    || ((profileData.publications || []).find((pub) => pub.title === tile.caption) || {}).link
+    || (visible(profileData.publications).find((pub) => pub.title === tile.caption) || {}).link
     || '';
 
   tiles.forEach((tile, i) => {
@@ -156,20 +161,20 @@ function renderCareer(profile) {
   const host = document.getElementById('profileCareer');
   if (!host) return;
   host.appendChild(column('Experience',
-    (profile.experience || []).map((w) => dateRow(w.when, w.org, w.role))));
+    visible(profile.experience).map((w) => dateRow(w.when, w.org, w.role))));
   host.appendChild(column('Education',
-    (profile.education || []).map((e) => dateRow(e.when, e.org, e.degree))));
+    visible(profile.education).map((e) => dateRow(e.when, e.org, e.degree))));
 }
 
 function renderHonors(profile) {
   const host = document.getElementById('profileHonors');
   if (!host) return;
   host.appendChild(column('Awards',
-    (profile.awards || []).map((h) => dateRow(String(h.year), h.title, h.by, 'date-48'))));
+    visible(profile.awards).map((h) => dateRow(String(h.year), h.title, h.by, 'date-48'))));
 
   const students = el('div', 'section-rows');
   students.appendChild(headWithMeta('Former students & mentees'));
-  (profile.students || []).forEach((s) => {
+  visible(profile.students).forEach((s) => {
     const row = el('div', 'student-row');
     row.appendChild(s.link ? externalLink(s.name, s.link, 'student-name') : el('div', 'student-name', s.name));
     if (s.note) row.appendChild(el('div', 'student-note', s.note));
@@ -182,7 +187,7 @@ function renderHonors(profile) {
 
 function renderFunding(profile) {
   const host = document.getElementById('profileFunding');
-  const grants = profile.funding || [];
+  const grants = visible(profile.funding);
   if (!host) return;
   if (!grants.length) { host.hidden = true; return; }
   host.appendChild(headWithMeta('Funding'));
@@ -210,7 +215,7 @@ function renderPublications(profile) {
     : null;
   host.appendChild(headWithMeta('Selected publications', scholar));
 
-  (profile.publications || []).forEach((pub) => {
+  visible(profile.publications).forEach((pub) => {
     const row = el('div', 'pub-row');
     row.appendChild(el('div', 'pub-year', String(pub.year)));
     const body = el('div', 'pub-body');
@@ -231,7 +236,7 @@ function renderPublications(profile) {
 function renderTalks(profile) {
   const host = document.getElementById('profileTalks');
   if (!host) return;
-  const talks = profile.talks || [];
+  const talks = visible(profile.talks);
   host.appendChild(headWithMeta('Invited talks & lectures',
     el('span', 'section-meta', `${talks.length} talk${talks.length === 1 ? '' : 's'}`)));
   talks.forEach((t) => {
