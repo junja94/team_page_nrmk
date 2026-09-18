@@ -786,10 +786,10 @@ h2 {
   right: 0;
   bottom: 0;
   padding: 6px 10px;
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0));
   font-size: 11px;
   line-height: 1.35;
-  color: var(--color-text);
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), 0 0 6px rgba(0, 0, 0, 0.35);
   pointer-events: none;
 }
 
