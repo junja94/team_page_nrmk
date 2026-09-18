@@ -135,9 +135,13 @@ a:hover {
   flex-direction: column;
 }
 
-.wrap-home,
-.wrap-profile {
+.wrap-home {
   gap: 40px;
+}
+
+/* The profile is a CV: tighter section rhythm than the home page. */
+.wrap-profile {
+  gap: 28px;
 }
 
 .site-footer {
@@ -237,7 +241,7 @@ h2 {
 .two-col {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px 40px;
+  gap: 20px 40px;
 }
 
 .badge {
@@ -705,7 +709,7 @@ h2 {
 .profile-body {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .profile-identity {
@@ -826,7 +830,7 @@ a.mosaic-tile:hover .mosaic-caption-title {
 .dated-row {
   display: grid;
   gap: 14px;
-  padding: 9px 0;
+  padding: 7px 0;
   border-bottom: 1px solid var(--color-divider);
   font-size: 13px;
   line-height: 1.45;
@@ -859,7 +863,7 @@ a.mosaic-tile:hover .mosaic-caption-title {
   display: grid;
   grid-template-columns: 48px minmax(0, 1fr);
   gap: 14px;
-  padding: 9px 0;
+  padding: 7px 0;
   border-bottom: 1px solid var(--color-divider);
 }
 
@@ -904,7 +908,7 @@ a.mosaic-tile:hover .mosaic-caption-title {
   display: flex;
   justify-content: space-between;
   gap: 14px;
-  padding: 9px 0;
+  padding: 7px 0;
   border-bottom: 1px solid var(--color-divider);
   font-size: 13px;
   line-height: 1.45;
@@ -923,7 +927,7 @@ a.mosaic-tile:hover .mosaic-caption-title {
   display: grid;
   grid-template-columns: 96px minmax(0, 1fr) minmax(0, 260px);
   gap: 14px;
-  padding: 9px 0;
+  padding: 7px 0;
   border-bottom: 1px solid var(--color-divider);
   font-size: 13px;
   line-height: 1.45;

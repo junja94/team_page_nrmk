@@ -2,7 +2,7 @@
   "name": "Joonho Lee",
   "photo": "media/team_pic/joonho.jpeg",
   "role": "Group Leader, Neuromeka AI Lab · Advisor, RIVR",
-  "status": "On military duty (Technical Research Personnel) until 2027.4.30",
+  "status": "On military duty until 2027.4.30 (Technical Research Personnel at Neuromeka)",
   "bio": "Robotics researcher and systems integrator with field experience. PhD from the Robotic Systems Lab at ETH Zurich on legged robotics; now leading learning-based control and manipulation for industrial robots at Neuromeka.",
   "links": [
     {
@@ -37,9 +37,9 @@
         "src": "media/profile/anymal-field-monkeys.jpg",
         "cols": 2,
         "rows": 2,
-        "caption": "Field deployment in South Africa",
-        "sub": "2023-2024",
-        "href": "https://leggedrobotics.github.io/rl-perceptiveloco/"
+        "caption": "When monkeys meet an ANYmal robot in the wild",
+        "sub": "BioRxiv 2024",
+        "href": "https://www.biorxiv.org/content/10.1101/2024.08.13.607714v1"
       },
       {
         "src": "media/profile/powder-dispensing.jpg",
